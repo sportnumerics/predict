@@ -1,0 +1,2270 @@
+[
+  {
+    "result": 10,
+    "team": 42,
+    "opponent": 30,
+    "prediction": 11.436093704769174
+  },
+  {
+    "result": 15,
+    "team": 30,
+    "opponent": 42,
+    "prediction": 10.182072365425716
+  },
+  {
+    "result": 12,
+    "team": 50,
+    "opponent": 56,
+    "prediction": 10.550771672965345
+  },
+  {
+    "result": 5,
+    "team": 56,
+    "opponent": 50,
+    "prediction": 9.98590551119791
+  },
+  {
+    "result": 7,
+    "team": 31,
+    "opponent": 42,
+    "prediction": 9.965062229509972
+  },
+  {
+    "result": 12,
+    "team": 42,
+    "opponent": 31,
+    "prediction": 13.177856189410425
+  },
+  {
+    "result": 8,
+    "team": 7,
+    "opponent": 6,
+    "prediction": 8.488106480003763
+  },
+  {
+    "result": 7,
+    "team": 6,
+    "opponent": 7,
+    "prediction": 9.217221069313496
+  },
+  {
+    "result": 10,
+    "team": 50,
+    "opponent": 59,
+    "prediction": 9.72137917083579
+  },
+  {
+    "result": 9,
+    "team": 59,
+    "opponent": 50,
+    "prediction": 9.568192120220528
+  },
+  {
+    "result": 13,
+    "team": 43,
+    "opponent": 1,
+    "prediction": 11.556840683745719
+  },
+  {
+    "result": 12,
+    "team": 1,
+    "opponent": 43,
+    "prediction": 11.5624536638833
+  },
+  {
+    "result": 6,
+    "team": 12,
+    "opponent": 9,
+    "prediction": 11.979824810143537
+  },
+  {
+    "result": 11,
+    "team": 9,
+    "opponent": 12,
+    "prediction": 10.035196962645868
+  },
+  {
+    "result": 13,
+    "team": 62,
+    "opponent": 31,
+    "prediction": 12.62260479055264
+  },
+  {
+    "result": 10,
+    "team": 31,
+    "opponent": 62,
+    "prediction": 8.604221785524334
+  },
+  {
+    "result": 5,
+    "team": 60,
+    "opponent": 27,
+    "prediction": 10.016320726088512
+  },
+  {
+    "result": 12,
+    "team": 27,
+    "opponent": 60,
+    "prediction": 9.456939527337967
+  },
+  {
+    "result": 3,
+    "team": 31,
+    "opponent": 59,
+    "prediction": 8.476920459595874
+  },
+  {
+    "result": 9,
+    "team": 59,
+    "opponent": 31,
+    "prediction": 12.460849559282613
+  },
+  {
+    "result": 6,
+    "team": 14,
+    "opponent": 4,
+    "prediction": 10.228370088637446
+  },
+  {
+    "result": 10,
+    "team": 4,
+    "opponent": 14,
+    "prediction": 10.30829831241969
+  },
+  {
+    "result": 8,
+    "team": 68,
+    "opponent": 62,
+    "prediction": 8.265885244828576
+  },
+  {
+    "result": 9,
+    "team": 62,
+    "opponent": 68,
+    "prediction": 9.018474243866043
+  },
+  {
+    "result": 3,
+    "team": 23,
+    "opponent": 62,
+    "prediction": 7.093466630801085
+  },
+  {
+    "result": 13,
+    "team": 62,
+    "opponent": 23,
+    "prediction": 12.522582991371655
+  },
+  {
+    "result": 1,
+    "team": 31,
+    "opponent": 28,
+    "prediction": 8.414168583136233
+  },
+  {
+    "result": 7,
+    "team": 28,
+    "opponent": 31,
+    "prediction": 12.038636149947584
+  },
+  {
+    "result": 17,
+    "team": 53,
+    "opponent": 40,
+    "prediction": 11.471879379469236
+  },
+  {
+    "result": 9,
+    "team": 40,
+    "opponent": 53,
+    "prediction": 9.416535603962275
+  },
+  {
+    "result": 18,
+    "team": 39,
+    "opponent": 34,
+    "prediction": 12.204802102753801
+  },
+  {
+    "result": 5,
+    "team": 34,
+    "opponent": 39,
+    "prediction": 9.274485471367623
+  },
+  {
+    "result": 14,
+    "team": 52,
+    "opponent": 56,
+    "prediction": 8.880833001766769
+  },
+  {
+    "result": 11,
+    "team": 56,
+    "opponent": 52,
+    "prediction": 11.55251565254099
+  },
+  {
+    "result": 3,
+    "team": 28,
+    "opponent": 65,
+    "prediction": 8.816846209736864
+  },
+  {
+    "result": 9,
+    "team": 65,
+    "opponent": 28,
+    "prediction": 10.11242499066711
+  },
+  {
+    "result": 8,
+    "team": 16,
+    "opponent": 67,
+    "prediction": 8.90696513818109
+  },
+  {
+    "result": 7,
+    "team": 67,
+    "opponent": 16,
+    "prediction": 9.156009345390553
+  },
+  {
+    "result": 12,
+    "team": 10,
+    "opponent": 67,
+    "prediction": 7.556526994837086
+  },
+  {
+    "result": 8,
+    "team": 67,
+    "opponent": 10,
+    "prediction": 9.459627516289457
+  },
+  {
+    "result": 10,
+    "team": 48,
+    "opponent": 41,
+    "prediction": 10.110104677396247
+  },
+  {
+    "result": 20,
+    "team": 41,
+    "opponent": 48,
+    "prediction": 10.861418310154368
+  },
+  {
+    "result": 15,
+    "team": 15,
+    "opponent": 41,
+    "prediction": 10.105735856373228
+  },
+  {
+    "result": 10,
+    "team": 41,
+    "opponent": 15,
+    "prediction": 9.629061165092507
+  },
+  {
+    "result": 5,
+    "team": 13,
+    "opponent": 29,
+    "prediction": 11.16074097731755
+  },
+  {
+    "result": 8,
+    "team": 29,
+    "opponent": 13,
+    "prediction": 9.648304284123663
+  },
+  {
+    "result": 7,
+    "team": 13,
+    "opponent": 32,
+    "prediction": 9.00926697302284
+  },
+  {
+    "result": 15,
+    "team": 32,
+    "opponent": 13,
+    "prediction": 12.596520061724636
+  },
+  {
+    "result": 7,
+    "team": 19,
+    "opponent": 48,
+    "prediction": 12.171834173671487
+  },
+  {
+    "result": 10,
+    "team": 48,
+    "opponent": 19,
+    "prediction": 10.427064021233551
+  },
+  {
+    "result": 8,
+    "team": 33,
+    "opponent": 36,
+    "prediction": 9.62863082314645
+  },
+  {
+    "result": 9,
+    "team": 36,
+    "opponent": 33,
+    "prediction": 8.739458847408217
+  },
+  {
+    "result": 11,
+    "team": 15,
+    "opponent": 46,
+    "prediction": 9.94032555352598
+  },
+  {
+    "result": 19,
+    "team": 46,
+    "opponent": 15,
+    "prediction": 13.797774530696918
+  },
+  {
+    "result": 6,
+    "team": 58,
+    "opponent": 51,
+    "prediction": 10.57061079895824
+  },
+  {
+    "result": 7,
+    "team": 51,
+    "opponent": 58,
+    "prediction": 9.72594245774013
+  },
+  {
+    "result": 13,
+    "team": 16,
+    "opponent": 65,
+    "prediction": 9.401591655706055
+  },
+  {
+    "result": 7,
+    "team": 65,
+    "opponent": 16,
+    "prediction": 9.947476526169487
+  },
+  {
+    "result": 9,
+    "team": 21,
+    "opponent": 56,
+    "prediction": 10.078413178120938
+  },
+  {
+    "result": 5,
+    "team": 56,
+    "opponent": 21,
+    "prediction": 9.301607926381726
+  },
+  {
+    "result": 7,
+    "team": 49,
+    "opponent": 44,
+    "prediction": 10.023808517189925
+  },
+  {
+    "result": 12,
+    "team": 44,
+    "opponent": 49,
+    "prediction": 8.158483234570397
+  },
+  {
+    "result": 9,
+    "team": 3,
+    "opponent": 62,
+    "prediction": 10.397770458633193
+  },
+  {
+    "result": 10,
+    "team": 62,
+    "opponent": 3,
+    "prediction": 10.73859615813301
+  },
+  {
+    "result": 6,
+    "team": 38,
+    "opponent": 45,
+    "prediction": 10.408702377213823
+  },
+  {
+    "result": 5,
+    "team": 45,
+    "opponent": 38,
+    "prediction": 9.47921774017424
+  },
+  {
+    "result": 7,
+    "team": 2,
+    "opponent": 16,
+    "prediction": 7.645833287586066
+  },
+  {
+    "result": 12,
+    "team": 16,
+    "opponent": 2,
+    "prediction": 11.319180481583922
+  },
+  {
+    "result": 16,
+    "team": 19,
+    "opponent": 66,
+    "prediction": 13.603653355429309
+  },
+  {
+    "result": 3,
+    "team": 66,
+    "opponent": 19,
+    "prediction": 7.759652453529229
+  },
+  {
+    "result": 1,
+    "team": 67,
+    "opponent": 3,
+    "prediction": 10.638689492633368
+  },
+  {
+    "result": 16,
+    "team": 3,
+    "opponent": 67,
+    "prediction": 9.58350836112561
+  },
+  {
+    "result": 7,
+    "team": 12,
+    "opponent": 35,
+    "prediction": 11.509426152539659
+  },
+  {
+    "result": 13,
+    "team": 35,
+    "opponent": 12,
+    "prediction": 12.03054982533465
+  },
+  {
+    "result": 12,
+    "team": 55,
+    "opponent": 38,
+    "prediction": 10.899509885574227
+  },
+  {
+    "result": 13,
+    "team": 38,
+    "opponent": 55,
+    "prediction": 10.675955331299168
+  },
+  {
+    "result": 17,
+    "team": 0,
+    "opponent": 13,
+    "prediction": 11.9145702744668
+  },
+  {
+    "result": 7,
+    "team": 13,
+    "opponent": 0,
+    "prediction": 8.420870281363822
+  },
+  {
+    "result": 14,
+    "team": 1,
+    "opponent": 3,
+    "prediction": 11.39838919021442
+  },
+  {
+    "result": 9,
+    "team": 3,
+    "opponent": 1,
+    "prediction": 11.649699850708982
+  },
+  {
+    "result": 8,
+    "team": 31,
+    "opponent": 53,
+    "prediction": 9.176622321353511
+  },
+  {
+    "result": 9,
+    "team": 53,
+    "opponent": 31,
+    "prediction": 12.415855679825668
+  },
+  {
+    "result": 5,
+    "team": 23,
+    "opponent": 63,
+    "prediction": 8.933324514353542
+  },
+  {
+    "result": 18,
+    "team": 63,
+    "opponent": 23,
+    "prediction": 10.407150194212738
+  },
+  {
+    "result": 9,
+    "team": 39,
+    "opponent": 38,
+    "prediction": 12.086447260602462
+  },
+  {
+    "result": 10,
+    "team": 38,
+    "opponent": 39,
+    "prediction": 9.63885994820498
+  },
+  {
+    "result": 7,
+    "team": 4,
+    "opponent": 58,
+    "prediction": 8.516001454457355
+  },
+  {
+    "result": 13,
+    "team": 58,
+    "opponent": 4,
+    "prediction": 12.225934277960539
+  },
+  {
+    "result": 14,
+    "team": 64,
+    "opponent": 17,
+    "prediction": 9.7449640255555
+  },
+  {
+    "result": 4,
+    "team": 17,
+    "opponent": 64,
+    "prediction": 7.589853434762396
+  },
+  {
+    "result": 5,
+    "team": 48,
+    "opponent": 11,
+    "prediction": 9.55030826052317
+  },
+  {
+    "result": 17,
+    "team": 11,
+    "opponent": 48,
+    "prediction": 12.028450175686025
+  },
+  {
+    "result": 12,
+    "team": 51,
+    "opponent": 65,
+    "prediction": 9.721367205957105
+  },
+  {
+    "result": 6,
+    "team": 65,
+    "opponent": 51,
+    "prediction": 10.993282442211141
+  },
+  {
+    "result": 10,
+    "team": 64,
+    "opponent": 29,
+    "prediction": 11.896783464649205
+  },
+  {
+    "result": 3,
+    "team": 29,
+    "opponent": 64,
+    "prediction": 8.1116807656501
+  },
+  {
+    "result": 12,
+    "team": 49,
+    "opponent": 42,
+    "prediction": 9.543824724317286
+  },
+  {
+    "result": 18,
+    "team": 42,
+    "opponent": 49,
+    "prediction": 10.673183618395738
+  },
+  {
+    "result": 6,
+    "team": 34,
+    "opponent": 64,
+    "prediction": 9.126441795034628
+  },
+  {
+    "result": 11,
+    "team": 64,
+    "opponent": 34,
+    "prediction": 10.936110568649237
+  },
+  {
+    "result": 18,
+    "team": 50,
+    "opponent": 6,
+    "prediction": 9.767440662907307
+  },
+  {
+    "result": 8,
+    "team": 6,
+    "opponent": 50,
+    "prediction": 9.323661211119829
+  },
+  {
+    "result": 6,
+    "team": 30,
+    "opponent": 3,
+    "prediction": 10.145722314674268
+  },
+  {
+    "result": 17,
+    "team": 3,
+    "opponent": 30,
+    "prediction": 12.035136917546922
+  },
+  {
+    "result": 8,
+    "team": 15,
+    "opponent": 61,
+    "prediction": 10.373453275882877
+  },
+  {
+    "result": 16,
+    "team": 61,
+    "opponent": 15,
+    "prediction": 12.105795042041763
+  },
+  {
+    "result": 8,
+    "team": 40,
+    "opponent": 35,
+    "prediction": 9.888554410514434
+  },
+  {
+    "result": 12,
+    "team": 35,
+    "opponent": 40,
+    "prediction": 12.916565724306743
+  },
+  {
+    "result": 16,
+    "team": 54,
+    "opponent": 41,
+    "prediction": 11.392153581301727
+  },
+  {
+    "result": 8,
+    "team": 41,
+    "opponent": 54,
+    "prediction": 10.180877140053571
+  },
+  {
+    "result": 10,
+    "team": 56,
+    "opponent": 63,
+    "prediction": 11.781782592565643
+  },
+  {
+    "result": 8,
+    "team": 63,
+    "opponent": 56,
+    "prediction": 8.093020151946
+  },
+  {
+    "result": 6,
+    "team": 23,
+    "opponent": 30,
+    "prediction": 8.520752080448581
+  },
+  {
+    "result": 20,
+    "team": 30,
+    "opponent": 23,
+    "prediction": 11.938287703246132
+  },
+  {
+    "result": 7,
+    "team": 13,
+    "opponent": 66,
+    "prediction": 11.835256574739244
+  },
+  {
+    "result": 6,
+    "team": 66,
+    "opponent": 13,
+    "prediction": 8.47581939966225
+  },
+  {
+    "result": 21,
+    "team": 48,
+    "opponent": 66,
+    "prediction": 12.624845880240901
+  },
+  {
+    "result": 4,
+    "team": 66,
+    "opponent": 48,
+    "prediction": 8.72474015406102
+  },
+  {
+    "result": 7,
+    "team": 26,
+    "opponent": 46,
+    "prediction": 8.852553740837783
+  },
+  {
+    "result": 15,
+    "team": 46,
+    "opponent": 26,
+    "prediction": 12.924198784392134
+  },
+  {
+    "result": 18,
+    "team": 21,
+    "opponent": 36,
+    "prediction": 9.718963481194631
+  },
+  {
+    "result": 11,
+    "team": 36,
+    "opponent": 21,
+    "prediction": 8.321322836393401
+  },
+  {
+    "result": 11,
+    "team": 53,
+    "opponent": 35,
+    "prediction": 10.281393554555605
+  },
+  {
+    "result": 10,
+    "team": 35,
+    "opponent": 53,
+    "prediction": 11.18042219014393
+  },
+  {
+    "result": 8,
+    "team": 8,
+    "opponent": 38,
+    "prediction": 10.36145098838454
+  },
+  {
+    "result": 10,
+    "team": 38,
+    "opponent": 8,
+    "prediction": 9.986891098452228
+  },
+  {
+    "result": 15,
+    "team": 0,
+    "opponent": 38,
+    "prediction": 11.702792110637763
+  },
+  {
+    "result": 9,
+    "team": 38,
+    "opponent": 0,
+    "prediction": 8.91533662765386
+  },
+  {
+    "result": 11,
+    "team": 53,
+    "opponent": 59,
+    "prediction": 9.102998981422612
+  },
+  {
+    "result": 16,
+    "team": 59,
+    "opponent": 53,
+    "prediction": 9.81386455947397
+  },
+  {
+    "result": 11,
+    "team": 37,
+    "opponent": 19,
+    "prediction": 9.734000404201316
+  },
+  {
+    "result": 19,
+    "team": 19,
+    "opponent": 37,
+    "prediction": 12.690879351822856
+  },
+  {
+    "result": 5,
+    "team": 13,
+    "opponent": 5,
+    "prediction": 9.478647380946894
+  },
+  {
+    "result": 8,
+    "team": 5,
+    "opponent": 13,
+    "prediction": 10.677635608473562
+  },
+  {
+    "result": 12,
+    "team": 50,
+    "opponent": 22,
+    "prediction": 10.290668649323186
+  },
+  {
+    "result": 7,
+    "team": 22,
+    "opponent": 50,
+    "prediction": 7.963313628771139
+  },
+  {
+    "result": 7,
+    "team": 37,
+    "opponent": 67,
+    "prediction": 8.029102669653154
+  },
+  {
+    "result": 11,
+    "team": 67,
+    "opponent": 37,
+    "prediction": 11.96325963627684
+  },
+  {
+    "result": 9,
+    "team": 60,
+    "opponent": 3,
+    "prediction": 10.653503508509695
+  },
+  {
+    "result": 19,
+    "team": 3,
+    "opponent": 60,
+    "prediction": 11.955076154482317
+  },
+  {
+    "result": 3,
+    "team": 29,
+    "opponent": 17,
+    "prediction": 8.455023955720852
+  },
+  {
+    "result": 9,
+    "team": 17,
+    "opponent": 29,
+    "prediction": 9.790031932918618
+  },
+  {
+    "result": 10,
+    "team": 28,
+    "opponent": 62,
+    "prediction": 8.850171708980898
+  },
+  {
+    "result": 6,
+    "team": 62,
+    "opponent": 28,
+    "prediction": 9.210542350531252
+  },
+  {
+    "result": 9,
+    "team": 12,
+    "opponent": 31,
+    "prediction": 13.809724223554076
+  },
+  {
+    "result": 8,
+    "team": 31,
+    "opponent": 12,
+    "prediction": 10.043047791310846
+  },
+  {
+    "result": 11,
+    "team": 51,
+    "opponent": 55,
+    "prediction": 11.309056802356883
+  },
+  {
+    "result": 10,
+    "team": 55,
+    "opponent": 51,
+    "prediction": 9.683646713770731
+  },
+  {
+    "result": 9,
+    "team": 26,
+    "opponent": 1,
+    "prediction": 9.590021179945339
+  },
+  {
+    "result": 10,
+    "team": 1,
+    "opponent": 26,
+    "prediction": 10.753440102424042
+  },
+  {
+    "result": 16,
+    "team": 10,
+    "opponent": 17,
+    "prediction": 8.746860093330842
+  },
+  {
+    "result": 5,
+    "team": 17,
+    "opponent": 10,
+    "prediction": 7.396930648893772
+  },
+  {
+    "result": 9,
+    "team": 1,
+    "opponent": 59,
+    "prediction": 9.810596938642782
+  },
+  {
+    "result": 12,
+    "team": 59,
+    "opponent": 1,
+    "prediction": 10.660596123182929
+  },
+  {
+    "result": 11,
+    "team": 41,
+    "opponent": 57,
+    "prediction": 11.51957740819104
+  },
+  {
+    "result": 4,
+    "team": 57,
+    "opponent": 41,
+    "prediction": 7.977616054724469
+  },
+  {
+    "result": 10,
+    "team": 66,
+    "opponent": 57,
+    "prediction": 9.221132289307908
+  },
+  {
+    "result": 7,
+    "team": 57,
+    "opponent": 66,
+    "prediction": 10.34864581622255
+  },
+  {
+    "result": 10,
+    "team": 25,
+    "opponent": 62,
+    "prediction": 10.99104193886842
+  },
+  {
+    "result": 9,
+    "team": 62,
+    "opponent": 25,
+    "prediction": 10.000992643389885
+  },
+  {
+    "result": 12,
+    "team": 54,
+    "opponent": 58,
+    "prediction": 10.351314386240999
+  },
+  {
+    "result": 8,
+    "team": 58,
+    "opponent": 54,
+    "prediction": 11.567350579998608
+  },
+  {
+    "result": 12,
+    "team": 18,
+    "opponent": 30,
+    "prediction": 10.392300051837186
+  },
+  {
+    "result": 13,
+    "team": 30,
+    "opponent": 18,
+    "prediction": 10.586097481577118
+  },
+  {
+    "result": 14,
+    "team": 51,
+    "opponent": 58,
+    "prediction": 9.72594245774013
+  },
+  {
+    "result": 3,
+    "team": 58,
+    "opponent": 51,
+    "prediction": 10.57061079895824
+  },
+  {
+    "result": 10,
+    "team": 67,
+    "opponent": 25,
+    "prediction": 9.90105049302484
+  },
+  {
+    "result": 9,
+    "team": 25,
+    "opponent": 67,
+    "prediction": 10.263213181313482
+  },
+  {
+    "result": 4,
+    "team": 37,
+    "opponent": 27,
+    "prediction": 9.199397537842502
+  },
+  {
+    "result": 13,
+    "team": 27,
+    "opponent": 37,
+    "prediction": 10.618188606579542
+  },
+  {
+    "result": 13,
+    "team": 52,
+    "opponent": 44,
+    "prediction": 10.159066928113516
+  },
+  {
+    "result": 8,
+    "team": 44,
+    "opponent": 52,
+    "prediction": 9.226998977757095
+  },
+  {
+    "result": 13,
+    "team": 11,
+    "opponent": 61,
+    "prediction": 11.042363123503598
+  },
+  {
+    "result": 14,
+    "team": 61,
+    "opponent": 11,
+    "prediction": 10.902825096839024
+  },
+  {
+    "result": 8,
+    "team": 37,
+    "opponent": 50,
+    "prediction": 8.836605342137926
+  },
+  {
+    "result": 16,
+    "team": 50,
+    "opponent": 37,
+    "prediction": 12.558809892264737
+  },
+  {
+    "result": 10,
+    "team": 21,
+    "opponent": 2,
+    "prediction": 11.350300909489121
+  },
+  {
+    "result": 7,
+    "team": 2,
+    "opponent": 21,
+    "prediction": 7.366903545863039
+  },
+  {
+    "result": 11,
+    "team": 42,
+    "opponent": 60,
+    "prediction": 11.359406446511223
+  },
+  {
+    "result": 10,
+    "team": 60,
+    "opponent": 42,
+    "prediction": 10.696057372943454
+  },
+  {
+    "result": 9,
+    "team": 43,
+    "opponent": 26,
+    "prediction": 10.914146120385979
+  },
+  {
+    "result": 11,
+    "team": 26,
+    "opponent": 43,
+    "prediction": 9.556707251089136
+  },
+  {
+    "result": 5,
+    "team": 26,
+    "opponent": 65,
+    "prediction": 8.067878006359388
+  },
+  {
+    "result": 9,
+    "team": 65,
+    "opponent": 26,
+    "prediction": 11.102381565555845
+  },
+  {
+    "result": 15,
+    "team": 12,
+    "opponent": 57,
+    "prediction": 13.43827867209188
+  },
+  {
+    "result": 9,
+    "team": 57,
+    "opponent": 12,
+    "prediction": 8.497680496616725
+  },
+  {
+    "result": 9,
+    "team": 10,
+    "opponent": 26,
+    "prediction": 8.783109831985518
+  },
+  {
+    "result": 16,
+    "team": 26,
+    "opponent": 10,
+    "prediction": 8.276561969832409
+  },
+  {
+    "result": 9,
+    "team": 47,
+    "opponent": 45,
+    "prediction": 10.00621077838707
+  },
+  {
+    "result": 8,
+    "team": 45,
+    "opponent": 47,
+    "prediction": 10.404371903415539
+  },
+  {
+    "result": 7,
+    "team": 22,
+    "opponent": 47,
+    "prediction": 10.197511709716522
+  },
+  {
+    "result": 10,
+    "team": 47,
+    "opponent": 22,
+    "prediction": 9.143234434236229
+  },
+  {
+    "result": 14,
+    "team": 64,
+    "opponent": 53,
+    "prediction": 9.60595843595605
+  },
+  {
+    "result": 9,
+    "team": 53,
+    "opponent": 64,
+    "prediction": 9.64055251414312
+  },
+  {
+    "result": 10,
+    "team": 37,
+    "opponent": 25,
+    "prediction": 9.108789272483419
+  },
+  {
+    "result": 17,
+    "team": 25,
+    "opponent": 37,
+    "prediction": 13.724805387036682
+  },
+  {
+    "result": 9,
+    "team": 18,
+    "opponent": 24,
+    "prediction": 9.21893823141526
+  },
+  {
+    "result": 7,
+    "team": 24,
+    "opponent": 18,
+    "prediction": 10.012907092001186
+  },
+  {
+    "result": 10,
+    "team": 51,
+    "opponent": 21,
+    "prediction": 9.409061358910293
+  },
+  {
+    "result": 8,
+    "team": 21,
+    "opponent": 51,
+    "prediction": 10.00088082220353
+  },
+  {
+    "result": 9,
+    "team": 41,
+    "opponent": 38,
+    "prediction": 10.40307891821686
+  },
+  {
+    "result": 6,
+    "team": 38,
+    "opponent": 41,
+    "prediction": 10.057132887979554
+  },
+  {
+    "result": 13,
+    "team": 50,
+    "opponent": 8,
+    "prediction": 10.732361940488746
+  },
+  {
+    "result": 5,
+    "team": 8,
+    "opponent": 50,
+    "prediction": 8.912436292806557
+  },
+  {
+    "result": 4,
+    "team": 49,
+    "opponent": 6,
+    "prediction": 8.093715807633167
+  },
+  {
+    "result": 8,
+    "team": 6,
+    "opponent": 49,
+    "prediction": 9.77513257039471
+  },
+  {
+    "result": 12,
+    "team": 68,
+    "opponent": 3,
+    "prediction": 9.527472929105741
+  },
+  {
+    "result": 10,
+    "team": 3,
+    "opponent": 68,
+    "prediction": 9.957333220499729
+  },
+  {
+    "result": 10,
+    "team": 36,
+    "opponent": 22,
+    "prediction": 9.026619105123352
+  },
+  {
+    "result": 5,
+    "team": 22,
+    "opponent": 36,
+    "prediction": 8.038557576061919
+  },
+  {
+    "result": 18,
+    "team": 49,
+    "opponent": 69,
+    "prediction": 16.76943598583258
+  },
+  {
+    "result": 4,
+    "team": 69,
+    "opponent": 49,
+    "prediction": 6.729865132684374
+  },
+  {
+    "result": 9,
+    "team": 43,
+    "opponent": 11,
+    "prediction": 10.406852969272666
+  },
+  {
+    "result": 16,
+    "team": 11,
+    "opponent": 43,
+    "prediction": 11.3821901537653
+  },
+  {
+    "result": 10,
+    "team": 38,
+    "opponent": 8,
+    "prediction": 9.986891098452228
+  },
+  {
+    "result": 8,
+    "team": 8,
+    "opponent": 38,
+    "prediction": 10.36145098838454
+  },
+  {
+    "result": 7,
+    "team": 18,
+    "opponent": 67,
+    "prediction": 8.413937936930724
+  },
+  {
+    "result": 8,
+    "team": 67,
+    "opponent": 18,
+    "prediction": 11.078987375126253
+  },
+  {
+    "result": 7,
+    "team": 60,
+    "opponent": 24,
+    "prediction": 9.673829992077234
+  },
+  {
+    "result": 11,
+    "team": 24,
+    "opponent": 60,
+    "prediction": 9.715528702346143
+  },
+  {
+    "result": 14,
+    "team": 51,
+    "opponent": 65,
+    "prediction": 9.721367205957105
+  },
+  {
+    "result": 6,
+    "team": 65,
+    "opponent": 51,
+    "prediction": 10.993282442211141
+  },
+  {
+    "result": 8,
+    "team": 61,
+    "opponent": 11,
+    "prediction": 10.902825096839024
+  },
+  {
+    "result": 11,
+    "team": 11,
+    "opponent": 61,
+    "prediction": 11.042363123503598
+  },
+  {
+    "result": 10,
+    "team": 39,
+    "opponent": 61,
+    "prediction": 11.43232640674252
+  },
+  {
+    "result": 7,
+    "team": 61,
+    "opponent": 39,
+    "prediction": 11.055316977778258
+  },
+  {
+    "result": 10,
+    "team": 23,
+    "opponent": 66,
+    "prediction": 10.207647636530593
+  },
+  {
+    "result": 7,
+    "team": 66,
+    "opponent": 23,
+    "prediction": 9.223620500207026
+  },
+  {
+    "result": 5,
+    "team": 52,
+    "opponent": 68,
+    "prediction": 7.921773970232606
+  },
+  {
+    "result": 7,
+    "team": 68,
+    "opponent": 52,
+    "prediction": 10.092310199549809
+  },
+  {
+    "result": 10,
+    "team": 7,
+    "opponent": 40,
+    "prediction": 10.771513694730777
+  },
+  {
+    "result": 8,
+    "team": 40,
+    "opponent": 7,
+    "prediction": 9.04608594451471
+  },
+  {
+    "result": 13,
+    "team": 30,
+    "opponent": 24,
+    "prediction": 9.1535520165579
+  },
+  {
+    "result": 7,
+    "team": 24,
+    "opponent": 30,
+    "prediction": 9.79047088923571
+  },
+  {
+    "result": 8,
+    "team": 1,
+    "opponent": 5,
+    "prediction": 11.101773409293788
+  },
+  {
+    "result": 9,
+    "team": 5,
+    "opponent": 1,
+    "prediction": 10.242714817769752
+  },
+  {
+    "result": 15,
+    "team": 39,
+    "opponent": 37,
+    "prediction": 12.9415723070161
+  },
+  {
+    "result": 4,
+    "team": 37,
+    "opponent": 39,
+    "prediction": 9.117525065316066
+  },
+  {
+    "result": 10,
+    "team": 42,
+    "opponent": 24,
+    "prediction": 10.197056799638295
+  },
+  {
+    "result": 11,
+    "team": 24,
+    "opponent": 42,
+    "prediction": 9.606394537949432
+  },
+  {
+    "result": 10,
+    "team": 43,
+    "opponent": 11,
+    "prediction": 10.406852969272666
+  },
+  {
+    "result": 11,
+    "team": 11,
+    "opponent": 43,
+    "prediction": 11.3821901537653
+  },
+  {
+    "result": 7,
+    "team": 52,
+    "opponent": 20,
+    "prediction": 10.218376401855698
+  },
+  {
+    "result": 19,
+    "team": 20,
+    "opponent": 52,
+    "prediction": 11.915135454584046
+  },
+  {
+    "result": 12,
+    "team": 8,
+    "opponent": 34,
+    "prediction": 10.494104238058183
+  },
+  {
+    "result": 9,
+    "team": 34,
+    "opponent": 8,
+    "prediction": 9.555706183827189
+  },
+  {
+    "result": 16,
+    "team": 32,
+    "opponent": 53,
+    "prediction": 11.168910058191196
+  },
+  {
+    "result": 8,
+    "team": 53,
+    "opponent": 32,
+    "prediction": 9.636854555395006
+  },
+  {
+    "result": 14,
+    "team": 0,
+    "opponent": 59,
+    "prediction": 9.723501229361316
+  },
+  {
+    "result": 4,
+    "team": 59,
+    "opponent": 0,
+    "prediction": 8.99627328630173
+  },
+  {
+    "result": 8,
+    "team": 36,
+    "opponent": 58,
+    "prediction": 8.636571782027533
+  },
+  {
+    "result": 13,
+    "team": 58,
+    "opponent": 36,
+    "prediction": 10.277493113409113
+  },
+  {
+    "result": 13,
+    "team": 15,
+    "opponent": 20,
+    "prediction": 11.154884477750203
+  },
+  {
+    "result": 12,
+    "team": 20,
+    "opponent": 15,
+    "prediction": 11.08487814668582
+  },
+  {
+    "result": 23,
+    "team": 54,
+    "opponent": 22,
+    "prediction": 10.878339539273362
+  },
+  {
+    "result": 13,
+    "team": 22,
+    "opponent": 54,
+    "prediction": 9.093658524311634
+  },
+  {
+    "result": 10,
+    "team": 4,
+    "opponent": 1,
+    "prediction": 9.982745309760595
+  },
+  {
+    "result": 11,
+    "team": 1,
+    "opponent": 4,
+    "prediction": 12.283513141720633
+  },
+  {
+    "result": 10,
+    "team": 42,
+    "opponent": 8,
+    "prediction": 10.701524022758685
+  },
+  {
+    "result": 16,
+    "team": 8,
+    "opponent": 42,
+    "prediction": 9.948281637318608
+  },
+  {
+    "result": 10,
+    "team": 66,
+    "opponent": 7,
+    "prediction": 6.892477863190472
+  },
+  {
+    "result": 14,
+    "team": 7,
+    "opponent": 66,
+    "prediction": 11.923717711757265
+  },
+  {
+    "result": 17,
+    "team": 53,
+    "opponent": 12,
+    "prediction": 10.669702895078945
+  },
+  {
+    "result": 16,
+    "team": 12,
+    "opponent": 53,
+    "prediction": 11.065688852581518
+  },
+  {
+    "result": 12,
+    "team": 10,
+    "opponent": 20,
+    "prediction": 9.907083268905215
+  },
+  {
+    "result": 13,
+    "team": 20,
+    "opponent": 10,
+    "prediction": 10.091907294518071
+  },
+  {
+    "result": 4,
+    "team": 2,
+    "opponent": 25,
+    "prediction": 8.18005136411324
+  },
+  {
+    "result": 17,
+    "team": 25,
+    "opponent": 2,
+    "prediction": 12.996853524223416
+  },
+  {
+    "result": 7,
+    "team": 48,
+    "opponent": 57,
+    "prediction": 12.045220648120509
+  },
+  {
+    "result": 3,
+    "team": 57,
+    "opponent": 48,
+    "prediction": 9.240097637809804
+  },
+  {
+    "result": 12,
+    "team": 42,
+    "opponent": 59,
+    "prediction": 9.64595395777786
+  },
+  {
+    "result": 13,
+    "team": 59,
+    "opponent": 42,
+    "prediction": 10.602469927761156
+  },
+  {
+    "result": 11,
+    "team": 42,
+    "opponent": 56,
+    "prediction": 10.549301315997651
+  },
+  {
+    "result": 9,
+    "team": 56,
+    "opponent": 42,
+    "prediction": 11.022115874017658
+  },
+  {
+    "result": 14,
+    "team": 67,
+    "opponent": 54,
+    "prediction": 10.843606941924763
+  },
+  {
+    "result": 9,
+    "team": 54,
+    "opponent": 67,
+    "prediction": 9.69898764176364
+  },
+  {
+    "result": 10,
+    "team": 0,
+    "opponent": 36,
+    "prediction": 10.215571323211982
+  },
+  {
+    "result": 5,
+    "team": 36,
+    "opponent": 0,
+    "prediction": 8.423322840340695
+  },
+  {
+    "result": 6,
+    "team": 51,
+    "opponent": 3,
+    "prediction": 11.095857553464292
+  },
+  {
+    "result": 15,
+    "team": 3,
+    "opponent": 51,
+    "prediction": 10.983298518160545
+  },
+  {
+    "result": 16,
+    "team": 28,
+    "opponent": 45,
+    "prediction": 10.112363124021037
+  },
+  {
+    "result": 9,
+    "team": 45,
+    "opponent": 28,
+    "prediction": 7.650851286883205
+  },
+  {
+    "result": 11,
+    "team": 13,
+    "opponent": 57,
+    "prediction": 11.28886541867185
+  },
+  {
+    "result": 10,
+    "team": 57,
+    "opponent": 13,
+    "prediction": 9.01222781046981
+  },
+  {
+    "result": 17,
+    "team": 61,
+    "opponent": 3,
+    "prediction": 12.29062183769264
+  },
+  {
+    "result": 16,
+    "team": 3,
+    "opponent": 61,
+    "prediction": 11.653128787336566
+  },
+  {
+    "result": 9,
+    "team": 62,
+    "opponent": 57,
+    "prediction": 12.294792463099915
+  },
+  {
+    "result": 3,
+    "team": 57,
+    "opponent": 62,
+    "prediction": 7.083535137348967
+  },
+  {
+    "result": 7,
+    "team": 48,
+    "opponent": 38,
+    "prediction": 10.92811735217135
+  },
+  {
+    "result": 6,
+    "team": 38,
+    "opponent": 48,
+    "prediction": 11.332876533197146
+  },
+  {
+    "result": 10,
+    "team": 32,
+    "opponent": 35,
+    "prediction": 11.61586231458599
+  },
+  {
+    "result": 16,
+    "team": 35,
+    "opponent": 32,
+    "prediction": 10.900319681619534
+  },
+  {
+    "result": 9,
+    "team": 50,
+    "opponent": 41,
+    "prediction": 10.803174328989396
+  },
+  {
+    "result": 8,
+    "team": 41,
+    "opponent": 50,
+    "prediction": 9.007052461238931
+  },
+  {
+    "result": 16,
+    "team": 53,
+    "opponent": 5,
+    "prediction": 10.244895371811424
+  },
+  {
+    "result": 10,
+    "team": 5,
+    "opponent": 53,
+    "prediction": 9.270473892828688
+  },
+  {
+    "result": 10,
+    "team": 56,
+    "opponent": 58,
+    "prediction": 9.618548448570467
+  },
+  {
+    "result": 15,
+    "team": 58,
+    "opponent": 56,
+    "prediction": 10.673414334031731
+  },
+  {
+    "result": 17,
+    "team": 32,
+    "opponent": 31,
+    "prediction": 13.901080783462735
+  },
+  {
+    "result": 8,
+    "team": 31,
+    "opponent": 32,
+    "prediction": 9.010613279786647
+  },
+  {
+    "result": 7,
+    "team": 27,
+    "opponent": 40,
+    "prediction": 10.20687240653504
+  },
+  {
+    "result": 10,
+    "team": 40,
+    "opponent": 27,
+    "prediction": 9.519138868232035
+  },
+  {
+    "result": 8,
+    "team": 68,
+    "opponent": 62,
+    "prediction": 8.265885244828576
+  },
+  {
+    "result": 9,
+    "team": 62,
+    "opponent": 68,
+    "prediction": 9.018474243866043
+  },
+  {
+    "result": 14,
+    "team": 39,
+    "opponent": 3,
+    "prediction": 11.60478811808383
+  },
+  {
+    "result": 8,
+    "team": 3,
+    "opponent": 39,
+    "prediction": 10.63329665153327
+  },
+  {
+    "result": 9,
+    "team": 68,
+    "opponent": 56,
+    "prediction": 8.828474217074568
+  },
+  {
+    "result": 6,
+    "team": 56,
+    "opponent": 68,
+    "prediction": 9.248240708775192
+  },
+  {
+    "result": 10,
+    "team": 6,
+    "opponent": 44,
+    "prediction": 10.89634148915205
+  },
+  {
+    "result": 11,
+    "team": 44,
+    "opponent": 6,
+    "prediction": 7.297702567316282
+  },
+  {
+    "result": 7,
+    "team": 39,
+    "opponent": 11,
+    "prediction": 10.354841689897288
+  },
+  {
+    "result": 13,
+    "team": 11,
+    "opponent": 39,
+    "prediction": 10.1402504585906
+  },
+  {
+    "result": 12,
+    "team": 0,
+    "opponent": 46,
+    "prediction": 10.649125496638781
+  },
+  {
+    "result": 14,
+    "team": 46,
+    "opponent": 0,
+    "prediction": 11.71308263720107
+  },
+  {
+    "result": 14,
+    "team": 12,
+    "opponent": 52,
+    "prediction": 12.39997478688371
+  },
+  {
+    "result": 10,
+    "team": 52,
+    "opponent": 12,
+    "prediction": 9.719663391019141
+  },
+  {
+    "result": 8,
+    "team": 33,
+    "opponent": 36,
+    "prediction": 9.62863082314645
+  },
+  {
+    "result": 11,
+    "team": 36,
+    "opponent": 33,
+    "prediction": 8.739458847408217
+  },
+  {
+    "result": 8,
+    "team": 37,
+    "opponent": 2,
+    "prediction": 10.375000334300767
+  },
+  {
+    "result": 5,
+    "team": 2,
+    "opponent": 37,
+    "prediction": 10.147175083731554
+  },
+  {
+    "result": 9,
+    "team": 67,
+    "opponent": 2,
+    "prediction": 11.223480069444312
+  },
+  {
+    "result": 8,
+    "team": 2,
+    "opponent": 67,
+    "prediction": 7.18679334920567
+  },
+  {
+    "result": 6,
+    "team": 14,
+    "opponent": 62,
+    "prediction": 8.305854375429185
+  },
+  {
+    "result": 11,
+    "team": 62,
+    "opponent": 14,
+    "prediction": 11.315118487705789
+  },
+  {
+    "result": 13,
+    "team": 0,
+    "opponent": 37,
+    "prediction": 12.581505569800225
+  },
+  {
+    "result": 8,
+    "team": 37,
+    "opponent": 0,
+    "prediction": 8.35443150828531
+  },
+  {
+    "result": 5,
+    "team": 49,
+    "opponent": 59,
+    "prediction": 8.272111092890512
+  },
+  {
+    "result": 18,
+    "team": 59,
+    "opponent": 49,
+    "prediction": 10.02766679989626
+  },
+  {
+    "result": 13,
+    "team": 28,
+    "opponent": 58,
+    "prediction": 8.852163240839737
+  },
+  {
+    "result": 6,
+    "team": 58,
+    "opponent": 28,
+    "prediction": 9.743019623366727
+  },
+  {
+    "result": 12,
+    "team": 55,
+    "opponent": 45,
+    "prediction": 10.359233955382102
+  },
+  {
+    "result": 9,
+    "team": 45,
+    "opponent": 55,
+    "prediction": 9.23051414433848
+  },
+  {
+    "result": 7,
+    "team": 64,
+    "opponent": 46,
+    "prediction": 9.771395088392888
+  },
+  {
+    "result": 20,
+    "team": 46,
+    "opponent": 64,
+    "prediction": 12.700923241042943
+  },
+  {
+    "result": 10,
+    "team": 21,
+    "opponent": 51,
+    "prediction": 10.00088082220353
+  },
+  {
+    "result": 8,
+    "team": 51,
+    "opponent": 21,
+    "prediction": 9.409061358910293
+  },
+  {
+    "result": 7,
+    "team": 26,
+    "opponent": 22,
+    "prediction": 8.498227873160516
+  },
+  {
+    "result": 9,
+    "team": 22,
+    "opponent": 26,
+    "prediction": 8.446819697251671
+  },
+  {
+    "result": 7,
+    "team": 44,
+    "opponent": 58,
+    "prediction": 7.573776005958281
+  },
+  {
+    "result": 14,
+    "team": 58,
+    "opponent": 44,
+    "prediction": 11.94928136723562
+  },
+  {
+    "result": 5,
+    "team": 17,
+    "opponent": 62,
+    "prediction": 7.181019995744983
+  },
+  {
+    "result": 7,
+    "team": 62,
+    "opponent": 17,
+    "prediction": 10.13522939248655
+  },
+  {
+    "result": 10,
+    "team": 62,
+    "opponent": 24,
+    "prediction": 9.74961571549838
+  },
+  {
+    "result": 8,
+    "team": 24,
+    "opponent": 62,
+    "prediction": 8.234591928396227
+  },
+  {
+    "result": 6,
+    "team": 33,
+    "opponent": 2,
+    "prediction": 11.262547174779554
+  },
+  {
+    "result": 11,
+    "team": 2,
+    "opponent": 33,
+    "prediction": 7.763949243881547
+  },
+  {
+    "result": 10,
+    "team": 11,
+    "opponent": 35,
+    "prediction": 10.865849657771353
+  },
+  {
+    "result": 7,
+    "team": 35,
+    "opponent": 11,
+    "prediction": 10.74681681653003
+  },
+  {
+    "result": 12,
+    "team": 61,
+    "opponent": 25,
+    "prediction": 11.436003595111327
+  },
+  {
+    "result": 13,
+    "team": 25,
+    "opponent": 61,
+    "prediction": 12.217378206005902
+  },
+  {
+    "result": 8,
+    "team": 48,
+    "opponent": 46,
+    "prediction": 9.951920801052012
+  },
+  {
+    "result": 19,
+    "team": 46,
+    "opponent": 48,
+    "prediction": 14.560012171960683
+  },
+  {
+    "result": 12,
+    "team": 22,
+    "opponent": 40,
+    "prediction": 9.803902459172084
+  },
+  {
+    "result": 11,
+    "team": 40,
+    "opponent": 22,
+    "prediction": 9.23833630951301
+  },
+  {
+    "result": 10,
+    "team": 25,
+    "opponent": 43,
+    "prediction": 12.556085978059313
+  },
+  {
+    "result": 15,
+    "team": 43,
+    "opponent": 25,
+    "prediction": 10.768559326378746
+  },
+  {
+    "result": 15,
+    "team": 19,
+    "opponent": 22,
+    "prediction": 10.372469743691337
+  },
+  {
+    "result": 11,
+    "team": 22,
+    "opponent": 19,
+    "prediction": 8.857992617256466
+  },
+  {
+    "result": 14,
+    "team": 50,
+    "opponent": 42,
+    "prediction": 11.262875437583663
+  },
+  {
+    "result": 7,
+    "team": 42,
+    "opponent": 50,
+    "prediction": 10.201397341525967
+  },
+  {
+    "result": 2,
+    "team": 23,
+    "opponent": 60,
+    "prediction": 8.453904980873563
+  },
+  {
+    "result": 13,
+    "team": 60,
+    "opponent": 23,
+    "prediction": 12.412434374906672
+  },
+  {
+    "result": 8,
+    "team": 31,
+    "opponent": 18,
+    "prediction": 10.362356294868777
+  },
+  {
+    "result": 11,
+    "team": 18,
+    "opponent": 31,
+    "prediction": 11.964920881751711
+  },
+  {
+    "result": 13,
+    "team": 61,
+    "opponent": 16,
+    "prediction": 10.386976917075748
+  },
+  {
+    "result": 9,
+    "team": 16,
+    "opponent": 61,
+    "prediction": 10.596434465462703
+  },
+  {
+    "result": 10,
+    "team": 12,
+    "opponent": 32,
+    "prediction": 10.796943412282934
+  },
+  {
+    "result": 9,
+    "team": 32,
+    "opponent": 12,
+    "prediction": 12.021952993962438
+  },
+  {
+    "result": 14,
+    "team": 25,
+    "opponent": 3,
+    "prediction": 12.388647571663912
+  },
+  {
+    "result": 12,
+    "team": 3,
+    "opponent": 25,
+    "prediction": 10.990446415599742
+  },
+  {
+    "result": 11,
+    "team": 21,
+    "opponent": 60,
+    "prediction": 10.897252392637784
+  },
+  {
+    "result": 2,
+    "team": 60,
+    "opponent": 21,
+    "prediction": 9.022734729164732
+  },
+  {
+    "result": 10,
+    "team": 0,
+    "opponent": 28,
+    "prediction": 9.682796311512487
+  },
+  {
+    "result": 13,
+    "team": 28,
+    "opponent": 0,
+    "prediction": 8.637476710310079
+  },
+  {
+    "result": 10,
+    "team": 19,
+    "opponent": 10,
+    "prediction": 10.053603670635935
+  },
+  {
+    "result": 12,
+    "team": 10,
+    "opponent": 19,
+    "prediction": 9.200279776495748
+  },
+  {
+    "result": 14,
+    "team": 27,
+    "opponent": 35,
+    "prediction": 9.066190849204677
+  },
+  {
+    "result": 20,
+    "team": 35,
+    "opponent": 27,
+    "prediction": 11.24985306752367
+  }
+]
