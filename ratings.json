@@ -1,492 +1,492 @@
 [
   {
-    "rank": 275.173939046802,
-    "team": {
-      "name": "Saint Joseph's",
-      "id": 606
-    }
-  },
-  {
-    "rank": 177.8670740419832,
-    "team": {
-      "name": "Yale",
-      "id": 813
-    }
-  },
-  {
-    "rank": 171.15972719641482,
-    "team": {
-      "name": "Bucknell",
-      "id": 83
-    }
-  },
-  {
-    "rank": 164.34141424018964,
-    "team": {
-      "name": "Albany (NY)",
-      "id": 14
-    }
-  },
-  {
-    "rank": 151.81016701202657,
-    "team": {
-      "name": "Villanova",
-      "id": 739
-    }
-  },
-  {
-    "rank": 131.91145989314225,
-    "team": {
-      "name": "Notre Dame",
-      "id": 513
-    }
-  },
-  {
-    "rank": 131.03991265928553,
-    "team": {
-      "name": "Loyola Maryland",
-      "id": 369
-    }
-  },
-  {
-    "rank": 106.69812617310885,
-    "team": {
-      "name": "Denver",
-      "id": 183
-    }
-  },
-  {
-    "rank": 70.95662624569451,
-    "team": {
-      "name": "Marquette",
-      "id": 387
-    }
-  },
-  {
-    "rank": 61.22593614824673,
-    "team": {
-      "name": "Hobart and William Colleges",
-      "id": 282
-    }
-  },
-  {
-    "rank": 54.290469281799545,
-    "team": {
-      "name": "Quinnipiac",
-      "id": 562
-    }
-  },
-  {
-    "rank": 53.4549018341299,
-    "team": {
-      "name": "Maryland",
-      "id": 392
-    }
-  },
-  {
-    "rank": 48.986210737672145,
-    "team": {
-      "name": "Marist",
-      "id": 386
-    }
-  },
-  {
-    "rank": 48.76151983265603,
-    "team": {
-      "name": "Rutgers",
-      "id": 587
-    }
-  },
-  {
-    "rank": 46.57752992220564,
-    "team": {
-      "name": "Navy",
-      "id": 726
-    }
-  },
-  {
-    "rank": 39.55849457535836,
-    "team": {
-      "name": "Syracuse",
-      "id": 688
-    }
-  },
-  {
-    "rank": 37.1985125444883,
-    "team": {
-      "name": "Bryant",
-      "id": 81
-    }
-  },
-  {
-    "rank": 30.25135764323723,
-    "team": {
-      "name": "Virginia",
-      "id": 746
-    }
-  },
-  {
-    "rank": 24.52437586342382,
-    "team": {
-      "name": "Boston U.",
-      "id": 68
-    }
-  },
-  {
-    "rank": 23.408300816157443,
-    "team": {
-      "name": "Stony Brook",
-      "id": 683
-    }
-  },
-  {
-    "rank": 18.555618039015954,
+    "rating": 35.80495006559294,
     "team": {
       "name": "Brown",
       "id": 80
     }
   },
   {
-    "rank": 18.17971014097055,
+    "rating": 33.52414495527025,
     "team": {
-      "name": "Ohio St.",
-      "id": 518
+      "name": "Maryland",
+      "id": 392
     }
   },
   {
-    "rank": 14.441225439649612,
+    "rating": 32.78872291309952,
     "team": {
-      "name": "Air Force",
-      "id": 721
+      "name": "Syracuse",
+      "id": 688
     }
   },
   {
-    "rank": 14.412419858718707,
-    "team": {
-      "name": "Army West Point",
-      "id": 725
-    }
-  },
-  {
-    "rank": 14.375557610795898,
-    "team": {
-      "name": "Bellarmine",
-      "id": 52
-    }
-  },
-  {
-    "rank": 12.029601904411907,
-    "team": {
-      "name": "Johns Hopkins",
-      "id": 322
-    }
-  },
-  {
-    "rank": 10.57998987703219,
+    "rating": 32.469672155672896,
     "team": {
       "name": "North Carolina",
       "id": 457
     }
   },
   {
-    "rank": 10.259444926137544,
+    "rating": 32.39636822939597,
     "team": {
-      "name": "UMass Lowell",
-      "id": 368
+      "name": "Notre Dame",
+      "id": 513
     }
   },
   {
-    "rank": 9.345042139083805,
+    "rating": 32.29499997942887,
     "team": {
-      "name": "Princeton",
-      "id": 554
+      "name": "Yale",
+      "id": 813
     }
   },
   {
-    "rank": 8.899514692932188,
+    "rating": 31.983684661306665,
     "team": {
-      "name": "Richmond",
-      "id": 575
+      "name": "Denver",
+      "id": 183
     }
   },
   {
-    "rank": 2.8141649300891256,
-    "team": {
-      "name": "Robert Morris",
-      "id": 579
-    }
-  },
-  {
-    "rank": 0.6245471685534651,
-    "team": {
-      "name": "Fairfield",
-      "id": 220
-    }
-  },
-  {
-    "rank": 0.15270334234813276,
-    "team": {
-      "name": "Sacred Heart",
-      "id": 590
-    }
-  },
-  {
-    "rank": 0,
-    "team": {
-      "name": "Canisius",
-      "id": 116
-    }
-  },
-  {
-    "rank": -1.4111962644886509,
-    "team": {
-      "name": "Siena",
-      "id": 639
-    }
-  },
-  {
-    "rank": -1.808992283682266,
-    "team": {
-      "name": "Lehigh",
-      "id": 352
-    }
-  },
-  {
-    "rank": -2.0207726323156407,
+    "rating": 31.67850159308196,
     "team": {
       "name": "Duke",
       "id": 193
     }
   },
   {
-    "rank": -2.130351167842031,
+    "rating": 31.13848326651009,
     "team": {
-      "name": "High Point",
-      "id": 19651
+      "name": "Loyola Maryland",
+      "id": 369
     }
   },
   {
-    "rank": -2.391896307668242,
+    "rating": 30.975293718194948,
+    "team": {
+      "name": "Villanova",
+      "id": 739
+    }
+  },
+  {
+    "rating": 30.788903433549496,
+    "team": {
+      "name": "Albany (NY)",
+      "id": 14
+    }
+  },
+  {
+    "rating": 30.744902169174935,
+    "team": {
+      "name": "Johns Hopkins",
+      "id": 322
+    }
+  },
+  {
+    "rating": 30.64344574690697,
+    "team": {
+      "name": "Navy",
+      "id": 726
+    }
+  },
+  {
+    "rating": 30.577439731582587,
     "team": {
       "name": "Towson",
       "id": 711
     }
   },
   {
-    "rank": -8.328863771259508,
-    "team": {
-      "name": "Penn St.",
-      "id": 539
-    }
-  },
-  {
-    "rank": -9.203705339182914,
+    "rating": 30.418576916534708,
     "team": {
       "name": "Harvard",
       "id": 275
     }
   },
   {
-    "rank": -13.23710878024572,
+    "rating": 30.39953001531428,
     "team": {
-      "name": "Vermont",
-      "id": 738
+      "name": "Stony Brook",
+      "id": 683
     }
   },
   {
-    "rank": -17.643613189548077,
+    "rating": 30.034326448991713,
     "team": {
-      "name": "Michigan",
-      "id": 418
+      "name": "Penn St.",
+      "id": 539
     }
   },
   {
-    "rank": -19.319180491409107,
+    "rating": 29.86982776176436,
     "team": {
-      "name": "Cornell",
-      "id": 167
+      "name": "Army West Point",
+      "id": 725
     }
   },
   {
-    "rank": -28.381184390543773,
+    "rating": 29.589766813238707,
     "team": {
-      "name": "Hofstra",
-      "id": 283
+      "name": "Rutgers",
+      "id": 587
     }
   },
   {
-    "rank": -31.21501179314543,
+    "rating": 29.486488768016926,
+    "team": {
+      "name": "Marquette",
+      "id": 387
+    }
+  },
+  {
+    "rating": 29.277510474990724,
+    "team": {
+      "name": "Bucknell",
+      "id": 83
+    }
+  },
+  {
+    "rating": 29.027463942271435,
+    "team": {
+      "name": "Virginia",
+      "id": 746
+    }
+  },
+  {
+    "rating": 28.965326064237335,
+    "team": {
+      "name": "Bryant",
+      "id": 81
+    }
+  },
+  {
+    "rating": 28.929815272236016,
     "team": {
       "name": "Penn",
       "id": 540
     }
   },
   {
-    "rank": -35.43811511111976,
+    "rating": 28.681091176759608,
     "team": {
-      "name": "Binghamton",
-      "id": 62
+      "name": "Saint Joseph's",
+      "id": 606
     }
   },
   {
-    "rank": -38.94669185680119,
+    "rating": 28.57365234663733,
     "team": {
-      "name": "Providence",
-      "id": 556
+      "name": "Ohio St.",
+      "id": 518
     }
   },
   {
-    "rank": -40.438330869874235,
+    "rating": 28.19831617463279,
     "team": {
       "name": "Massachusetts",
       "id": 400
     }
   },
   {
-    "rank": -42.909649541205184,
+    "rating": 27.99050654269079,
     "team": {
-      "name": "Hartford",
-      "id": 272
+      "name": "Hofstra",
+      "id": 283
     }
   },
   {
-    "rank": -43.60999597638185,
+    "rating": 27.82763998930829,
     "team": {
-      "name": "Delaware",
-      "id": 180
+      "name": "Cornell",
+      "id": 167
     }
   },
   {
-    "rank": -48.071907304477556,
+    "rating": 27.744236969327304,
     "team": {
-      "name": "Jacksonville",
-      "id": 316
+      "name": "Fairfield",
+      "id": 220
     }
   },
   {
-    "rank": -49.00204806403657,
-    "team": {
-      "name": "Mercer",
-      "id": 406
-    }
-  },
-  {
-    "rank": -49.43061010423823,
-    "team": {
-      "name": "Hampton",
-      "id": 270
-    }
-  },
-  {
-    "rank": -53.29934089384154,
-    "team": {
-      "name": "Detroit",
-      "id": 184
-    }
-  },
-  {
-    "rank": -64.30936205826498,
-    "team": {
-      "name": "Monmouth",
-      "id": 439
-    }
-  },
-  {
-    "rank": -66.96285014850737,
-    "team": {
-      "name": "Furman",
-      "id": 244
-    }
-  },
-  {
-    "rank": -73.2003456582918,
-    "team": {
-      "name": "Dartmouth",
-      "id": 172
-    }
-  },
-  {
-    "rank": -85.98201691287775,
-    "team": {
-      "name": "Holy Cross",
-      "id": 285
-    }
-  },
-  {
-    "rank": -92.22484012382753,
+    "rating": 27.560977196595864,
     "team": {
       "name": "Drexel",
       "id": 191
     }
   },
   {
-    "rank": -103.67629192357386,
+    "rating": 27.307257722990045,
     "team": {
-      "name": "VMI",
-      "id": 741
+      "name": "Air Force",
+      "id": 721
     }
   },
   {
-    "rank": -104.48048371674707,
+    "rating": 26.959368638587723,
     "team": {
-      "name": "Wagner",
-      "id": 748
+      "name": "Princeton",
+      "id": 554
     }
   },
   {
-    "rank": -105.09553424232826,
+    "rating": 26.921386385235984,
     "team": {
-      "name": "Mt. St. Mary's",
-      "id": 450
+      "name": "Quinnipiac",
+      "id": 562
     }
   },
   {
-    "rank": -108.92052449716559,
+    "rating": 26.914079867816415,
     "team": {
-      "name": "Lafayette",
-      "id": 342
+      "name": "Richmond",
+      "id": 575
     }
   },
   {
-    "rank": -122.69007564739559,
+    "rating": 26.5431994397088,
     "team": {
-      "name": "St. John's (NY)",
-      "id": 603
+      "name": "Hartford",
+      "id": 272
     }
   },
   {
-    "rank": -129.38079789585134,
+    "rating": 26.41014621529771,
+    "team": {
+      "name": "Boston U.",
+      "id": 68
+    }
+  },
+  {
+    "rating": 26.34688681052504,
+    "team": {
+      "name": "Lehigh",
+      "id": 352
+    }
+  },
+  {
+    "rating": 26.331111905992508,
+    "team": {
+      "name": "Vermont",
+      "id": 738
+    }
+  },
+  {
+    "rating": 26.251111750910905,
+    "team": {
+      "name": "Providence",
+      "id": 556
+    }
+  },
+  {
+    "rating": 25.68984057560259,
+    "team": {
+      "name": "High Point",
+      "id": 19651
+    }
+  },
+  {
+    "rating": 25.61461818761293,
+    "team": {
+      "name": "Hobart and William Colleges",
+      "id": 282
+    }
+  },
+  {
+    "rating": 25.344590495119693,
+    "team": {
+      "name": "Robert Morris",
+      "id": 579
+    }
+  },
+  {
+    "rating": 25.259098043615456,
+    "team": {
+      "name": "Michigan",
+      "id": 418
+    }
+  },
+  {
+    "rating": 25.25763913326397,
+    "team": {
+      "name": "Marist",
+      "id": 386
+    }
+  },
+  {
+    "rating": 25.122735871053983,
+    "team": {
+      "name": "Holy Cross",
+      "id": 285
+    }
+  },
+  {
+    "rating": 24.971022953566532,
     "team": {
       "name": "Georgetown",
       "id": 251
     }
   },
   {
-    "rank": -138.77256293496023,
+    "rating": 24.76679786913,
+    "team": {
+      "name": "Bellarmine",
+      "id": 52
+    }
+  },
+  {
+    "rating": 24.493099143787227,
     "team": {
       "name": "Colgate",
       "id": 153
     }
   },
   {
-    "rank": -165.85031261858668,
+    "rating": 24.312892512131132,
+    "team": {
+      "name": "Mt. St. Mary's",
+      "id": 450
+    }
+  },
+  {
+    "rating": 24.201841572101465,
+    "team": {
+      "name": "Delaware",
+      "id": 180
+    }
+  },
+  {
+    "rating": 24.193231798475257,
     "team": {
       "name": "UMBC",
       "id": 391
     }
   },
   {
-    "rank": -245.83899511589547,
+    "rating": 24.0437882995803,
+    "team": {
+      "name": "Binghamton",
+      "id": 62
+    }
+  },
+  {
+    "rating": 23.838971622814285,
+    "team": {
+      "name": "Monmouth",
+      "id": 439
+    }
+  },
+  {
+    "rating": 23.390679993942406,
+    "team": {
+      "name": "Canisius",
+      "id": 116
+    }
+  },
+  {
+    "rating": 23.12698346133804,
+    "team": {
+      "name": "Mercer",
+      "id": 406
+    }
+  },
+  {
+    "rating": 22.9918839334087,
+    "team": {
+      "name": "St. John's (NY)",
+      "id": 603
+    }
+  },
+  {
+    "rating": 22.56747425927888,
+    "team": {
+      "name": "Furman",
+      "id": 244
+    }
+  },
+  {
+    "rating": 22.292240075034087,
+    "team": {
+      "name": "Detroit",
+      "id": 184
+    }
+  },
+  {
+    "rating": 22.072268765116068,
+    "team": {
+      "name": "Sacred Heart",
+      "id": 590
+    }
+  },
+  {
+    "rating": 21.816248702659898,
+    "team": {
+      "name": "Lafayette",
+      "id": 342
+    }
+  },
+  {
+    "rating": 21.69424926786284,
+    "team": {
+      "name": "Siena",
+      "id": 639
+    }
+  },
+  {
+    "rating": 21.472044081657465,
+    "team": {
+      "name": "UMass Lowell",
+      "id": 368
+    }
+  },
+  {
+    "rating": 21.218929948757644,
+    "team": {
+      "name": "Jacksonville",
+      "id": 316
+    }
+  },
+  {
+    "rating": 20.470608985641828,
+    "team": {
+      "name": "Dartmouth",
+      "id": 172
+    }
+  },
+  {
+    "rating": 19.961593267834154,
+    "team": {
+      "name": "Wagner",
+      "id": 748
+    }
+  },
+  {
+    "rating": 19.077599408035148,
+    "team": {
+      "name": "Manhattan",
+      "id": 381
+    }
+  },
+  {
+    "rating": 16.129464516220047,
     "team": {
       "name": "NJIT",
       "id": 471
     }
   },
   {
-    "rank": -290.2372703876509,
+    "rating": 15.03840685168284,
     "team": {
-      "name": "Manhattan",
-      "id": 381
+      "name": "VMI",
+      "id": 741
+    }
+  },
+  {
+    "rating": 0.0,
+    "team": {
+      "name": "Hampton",
+      "id": 270
     }
   }
 ]
