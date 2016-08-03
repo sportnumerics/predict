@@ -68,7 +68,7 @@ def build_offensive_defensive_coefficient_matrix(games, team_map):
     def defensive_offset(id):
         return len(ids_to_indicies) + ids_to_indicies[id]
 
-    j = [i for game in games for i in (offensive_offset(game['team']['id']),
+    j = [k for game in games for k in (offensive_offset(game['team']['id']),
                                        defensive_offset(game['opponent']['id']),
                                        offensive_offset(game['opponent']['id']),
                                        defensive_offset(game['team']['id']))]

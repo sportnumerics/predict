@@ -88,5 +88,5 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# prediction output
+# output
 output/
