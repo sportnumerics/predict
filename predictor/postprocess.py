@@ -42,7 +42,7 @@ def calculate_lss_offensive_defensive_ratings(team_map, model):
             'overall': overall[i]
         }
 
-    return results
+    return {'ratings': results}
 
 def calculate_pcd_ratings(team_map, model):
     # rating is determined by how well a team would do if it played all other
@@ -60,11 +60,11 @@ def calculate_pcd_ratings(team_map, model):
     return collect_ratings(team_map, rating_function)
 
 def amend_pcd_features(team_map, od_ratings, pcd_model):
-    for team in od_ratings.values():
+    for team in od_ratings['ratings'].values():
         index = team_map['ids_to_indicies'][team['team']['id']]
         team['pcdOffense'] = pcd_model.offensive_factors[:,index].tolist()
         team['pcdDefense'] = pcd_model.defensive_factors[:,index].tolist()
-    return {'ratings': od_ratings}
+    return od_ratings
 
 def predict_games(samples, team_map, model):
     predictions = []
