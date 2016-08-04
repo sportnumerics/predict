@@ -2,8 +2,9 @@ import requests
 import copy
 import numpy as np
 from scipy.sparse import coo_matrix
+import os
 
-datasource_url = 'http://localhost:3000'
+datasource_url = os.environ['DATASOURCE_HOST']
 teams_path = '/teams'
 schedule_path = '/teams/{team_id}/schedule'
 
