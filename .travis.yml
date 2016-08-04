@@ -4,7 +4,7 @@ python:
 addons:
   apt:
     packages:
-    - libatlas-dev
+    - libatlas-base-dev
 install: pip install -r requirements.txt
 before_script: ./build.sh
 script: ./deploy.sh
