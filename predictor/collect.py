@@ -106,7 +106,6 @@ def id_for_game(game):
 
 def get_all_games_for_team(team):
     url = datasource_url + schedule_path.format(team_id = team['id'])
-    print('requesting {}', url)
     response = requests.get(url)
 
     team_games = response.json()['schedule']
