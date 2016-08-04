@@ -4,8 +4,8 @@ python:
 addons:
   apt:
     packages:
-    - libatlas-base-dev
-    - gfortran
+    - python-scipy
+    - python-numpy
 install: pip install -v -r requirements.txt
 before_script: ./build.sh
 script: ./deploy.sh
