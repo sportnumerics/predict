@@ -1,7 +1,8 @@
 language: python
 python:
 - '2.7'
-script: echo "nothing"
+install: echo "no install"
+script: echo "no tests"
 after_success: ./deploy.sh
 env:
   global:
