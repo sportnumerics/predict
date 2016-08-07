@@ -1,7 +1,7 @@
 version: '2'
 services:
   predictor:
-    build: .
+    image: 265978616089.dkr.ecr.us-west-2.amazonaws.com/sportnumerics-predictor
     volumes:
     - .:/code
     environment:
