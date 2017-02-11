@@ -1,5 +1,7 @@
 set -e
 
+# for native compilation, gcc is not available unless we initialise lambci gcc
+. ~/init/gcc
 pip install --user virtualenv
 virtualenv env
 source env/bin/activate
