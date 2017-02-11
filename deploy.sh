@@ -1,11 +1,11 @@
-set -e
+set -ex
+
+# check disk space
+df -h
 
 # for native compilation, gcc is not available unless we initialise lambci gcc
 . ~/init/gcc
-pip install --user virtualenv
-virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
+pip install -t vendored/ -r requirements.txt
 npm install serverless
 
 ./decrypt.sh
