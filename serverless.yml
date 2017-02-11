@@ -1,7 +1,6 @@
-service: sportnumerics
+service: sportnumerics-predict
 provider:
   name: aws
-  runtime: nodejs4.3
   stage: dev
   region: ap-southeast-2
   iamRoleStatements:
@@ -14,19 +13,14 @@ provider:
       - "s3:PutObject"
     Resource: "${self:custom.resultsBucketArn}/*"
   environment:
-    RESULTS_BUCKET_NAME: ${self.custom.resultsBucketName}
+    RESULTS_BUCKET_NAME: ${self:custom.resultsBucketName}
     DATASOURCE_HOST: sportnumerics-stats-${opt:stage}.s3-website-ap-southeast-2.amazonaws.com
 package:
   exclude:
   - config/env.sh
 custom:
   resultsBucketName: sportnumerics-predict-${opt:stage}
-  resultsBucketArn:
-    Fn::Join:
-      - ':'
-      - - 'arn:aws:s3'
-        - ':'
-        - '${self:custom.resultsBucketName}'
+  resultsBucketArn: arn:aws:s3:::${self:custom.resultsBucketName}
   snsTopicName: sportnumerics-predict-${opt:stage}
   snsTopicArn:
     Fn::Join:
@@ -47,6 +41,7 @@ resources:
 functions:
   predict:
     handler: go.run
+    runtime: python2.7
     events:
     - sns:
         topicName: ${self:custom.snsTopicName}
