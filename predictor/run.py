@@ -2,7 +2,11 @@ import json
 from predictor import collect, lls_model, postprocess, upload
 
 def run():
-    games = collect.get_all_games()
+    for x in [1]:
+        run_division(x)
+
+def run_division(division=1):
+    games = collect.get_all_games(division)
 
     games_list = list(games.values())
 
@@ -19,4 +23,4 @@ def run():
 
     od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(team_map, l_model)
 
-    upload.upload_to_s3('linear-v1', od_ratings)
+    upload.upload_to_s3('linear-v1', 'ratings-{}.json'.format(division), od_ratings)
