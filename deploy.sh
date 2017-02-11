@@ -1,6 +1,6 @@
 set -e
 
-pip install virtualenv
+pip install --user virtualenv
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
