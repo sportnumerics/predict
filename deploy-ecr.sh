@@ -1,12 +1,11 @@
 #!/bin/bash
 
-IMAGE_NAME="sportnumerics-predictor"
+STAGE="dev"
+IMAGE_NAME="sportnumerics-predictor-$STAGE"
+ACCOUNT="265978616089"
 
 docker --version
-virtualenv env
-source env/bin/activate
-pip install awscli
-eval $(aws ecr get-login --region us-west-2)
+eval $(aws ecr get-login --region ap-southeast-2)
 docker build -t $IMAGE_NAME .
-docker tag $IMAGE_NAME:latest 265978616089.dkr.ecr.us-west-2.amazonaws.com/$IMAGE_NAME:latest
-docker push 265978616089.dkr.ecr.us-west-2.amazonaws.com/$IMAGE_NAME:latest
+docker tag $IMAGE_NAME:latest $ACCOUNT.dkr.ecr.ap-southeast-2.amazonaws.com/$IMAGE_NAME:latest
+docker push $ACCOUNT.dkr.ecr.ap-southeast-2.amazonaws.com/$IMAGE_NAME:latest
