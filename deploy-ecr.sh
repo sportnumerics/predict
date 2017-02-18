@@ -1,8 +1,13 @@
 #!/bin/bash
 
+set -e
+
 STAGE="dev"
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
 ACCOUNT="265978616089"
+
+./decrypt.sh
+source ./config/env.sh
 
 docker --version
 eval $(aws ecr get-login --region ap-southeast-2)

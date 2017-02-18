@@ -1,14 +1,12 @@
-FROM ubuntu:latest
+FROM alpine:3.4
 
-RUN apt-get update
+WORKDIR /work
 
-RUN apt-get install -y docker git git-core python-pip python-dev build-essential libssl-dev curl
+RUN apk add --no-cache bash curl git docker py-pip openssl
 
 RUN pip install --upgrade pip
 
 RUN pip install --upgrade awscli
-
-WORKDIR /work
 
 ADD . .
 
