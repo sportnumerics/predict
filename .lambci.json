@@ -1,3 +1,7 @@
 {
-  "cmd": "./deploy.sh"
+  "cmd": "./deploy.sh",
+  "docker": {
+    "cluster": "lambci-ecs-Cluster-1VR9NSR666BFG",
+    "task": "lambci-ecs-BuildTask-VH2YWGDQ2RZN"
+  }
 }
