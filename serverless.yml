@@ -10,10 +10,7 @@ provider:
       Ref: PredictTask
 package:
   exclude:
-  - *
-  include:
-  - bootstrap.py
-  - vendored/
+  - config/env.sh
 custom:
   resultsBucketName: sportnumerics-predict-${opt:stage}
   resultsBucketArn: arn:aws:s3:::${self:custom.resultsBucketName}
