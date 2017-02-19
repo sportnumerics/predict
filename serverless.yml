@@ -5,19 +5,15 @@ provider:
   region: ap-southeast-2
   iamRoleStatements:
   - Effect: "Allow"
-    Action:
-      - "s3:ListBucket"
-    Resource: ${self:custom.resultsBucketArn}
-  - Effect: "Allow"
-    Action:
-      - "s3:PutObject"
-    Resource: "${self:custom.resultsBucketArn}/*"
-  environment:
-    RESULTS_BUCKET_NAME: ${self:custom.resultsBucketName}
-    DATASOURCE_HOST: sportnumerics-stats-${opt:stage}.s3-website-ap-southeast-2.amazonaws.com
+    Action: "ecs:RunTask"
+    Resource:
+      Ref: PredictTask
 package:
   exclude:
-  - config/env.sh
+  - *
+  include:
+  - bootstrap.py
+  - vendored/
 custom:
   resultsBucketName: sportnumerics-predict-${opt:stage}
   resultsBucketArn: arn:aws:s3:::${self:custom.resultsBucketName}
@@ -31,18 +27,18 @@ custom:
         - ${self:custom.snsTopicName}
 
 resources:
-  Resources:
-    S3BucketPredict:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:custom.resultsBucketName}
-        AccessControl: "PublicRead"
+  Resources: ${file(resources.yml)}
 
 functions:
   predict:
-    handler: go.run
+    handler: bootstrap.handler
     runtime: python2.7
     events:
     - sns:
         topicName: ${self:custom.snsTopicName}
         displayName: "Stats Collection Routing"
+    environment:
+      ECS_CLUSTER:
+        Ref: Cluster
+      ECS_TASK:
+        Ref: PredictTask

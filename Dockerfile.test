@@ -2,12 +2,14 @@ FROM alpine:3.4
 
 WORKDIR /work
 
-RUN apk add --no-cache bash curl git docker py-pip openssl
+RUN apk add --no-cache bash curl git docker py-pip openssl nodejs
 
 RUN pip install --upgrade pip
 
 RUN pip install --upgrade awscli
 
+RUN npm install serverless
+
 ADD . .
 
-CMD ./deploy-ecr.sh
+CMD ./deploy.sh
