@@ -1,120 +1,126 @@
-S3BucketPredict:
-  Type: AWS::S3::Bucket
-  Properties:
-    BucketName: ${file(serverless.yml):custom.resultsBucketName}
-    AccessControl: "PublicRead"
-Cluster:
-  Type: AWS::ECS::Cluster
-PredictTask:
-  Type: AWS::ECS::TaskDefinition
-  Properties:
-    ContainerDefinitions:
-    - Name: predict
-      Image: 265978616089.dkr.ecr.ap-southeast-2.amazonaws.com/sportnumerics-predictor-dev:latest
-      Memory: 450
-      LogConfiguration:
-        LogDriver: awslogs
-        Options:
-          awslogs-group:
-            Ref: EcsLogs
-          awslogs-region:
-            Ref: AWS::Region
-      Environment:
-      - Name: RESULTS_BUCKET_NAME
-        Value: ${file(serverless.yml):custom.resultsBucketName}
-      - Name: DATASOURCE_HOST
-        Value: http://sportnumerics-stats-${opt:stage}.s3-website-ap-southeast-2.amazonaws.com
-EcsLogs:
-  Type: AWS::Logs::LogGroup
-AutoScalingGroup:
-  Type: AWS::AutoScaling::AutoScalingGroup
-  Properties:
-    AvailabilityZones:
-      Fn::GetAZs: ''
-    LaunchConfigurationName:
-      Ref: LaunchConfig
-    DesiredCapacity: '1'
-    MinSize: '0'
-    MaxSize: '4'
-  CreationPolicy:
-    ResourceSignal:
-      Count: '1'
-LaunchConfig:
-  Type: AWS::AutoScaling::LaunchConfiguration
-  Properties:
-    ImageId: ami-8af8ffe9
-    IamInstanceProfile:
-      Ref: InstanceProfile
-    InstanceType: t2.micro
-    UserData:
-      Fn::Base64:
-        Fn::Join:
-        - ''
-        - - "#!/bin/bash\n"
-          - "echo ECS_CLUSTER="
-          - Ref: Cluster
-          - " >> /etc/ecs/ecs.config\n"
-          - "yum install -y aws-cfn-bootstrap\n"
-          - "/opt/aws/bin/cfn-signal -e $? --resource AutoScalingGroup --stack "
-          - Ref: AWS::StackName
-          - " --region "
-          - Ref: AWS::Region
-InstanceProfile:
-  Type: AWS::IAM::InstanceProfile
-  Properties:
-    Path: "/"
-    Roles:
-    - Ref: InstanceRole
-InstanceRole:
-  Type: AWS::IAM::Role
-  Properties:
-    AssumeRolePolicyDocument:
-      Statement:
-        Effect: Allow
-        Principal:
-          Service: ec2.amazonaws.com
-        Action: sts:AssumeRole
-    Policies:
-    - PolicyName: PullContainer
-      PolicyDocument:
+Resources:
+  S3BucketPredict:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: ${file(serverless.yml):custom.resultsBucketName}
+      AccessControl: "PublicRead"
+  Cluster:
+    Type: AWS::ECS::Cluster
+  PredictTask:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+      - Name: predict
+        Image: 265978616089.dkr.ecr.ap-southeast-2.amazonaws.com/sportnumerics-predictor-dev:latest
+        Memory: 450
+        LogConfiguration:
+          LogDriver: awslogs
+          Options:
+            awslogs-group:
+              Ref: EcsLogs
+            awslogs-region:
+              Ref: AWS::Region
+        Environment:
+        - Name: RESULTS_BUCKET_NAME
+          Value: ${file(serverless.yml):custom.resultsBucketName}
+        - Name: DATASOURCE_HOST
+          Value: http://sportnumerics-stats-${opt:stage}.s3-website-ap-southeast-2.amazonaws.com
+  EcsLogs:
+    Type: AWS::Logs::LogGroup
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AvailabilityZones:
+        Fn::GetAZs: ''
+      LaunchConfigurationName:
+        Ref: LaunchConfig
+      DesiredCapacity: '1'
+      MinSize: '0'
+      MaxSize: '4'
+    CreationPolicy:
+      ResourceSignal:
+        Count: '1'
+  LaunchConfig:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties:
+      ImageId: ami-8af8ffe9
+      IamInstanceProfile:
+        Ref: InstanceProfile
+      InstanceType: t2.micro
+      UserData:
+        Fn::Base64:
+          Fn::Join:
+          - ''
+          - - "#!/bin/bash\n"
+            - "echo ECS_CLUSTER="
+            - Ref: Cluster
+            - " >> /etc/ecs/ecs.config\n"
+            - "yum install -y aws-cfn-bootstrap\n"
+            - "/opt/aws/bin/cfn-signal -e $? --resource AutoScalingGroup --stack "
+            - Ref: AWS::StackName
+            - " --region "
+            - Ref: AWS::Region
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: "/"
+      Roles:
+      - Ref: InstanceRole
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
         Statement:
           Effect: Allow
-          Action:
-          - ecr:GetAuthorizationToken
-          - ecr:BatchCheckLayerAvailability
-          - ecr:GetDownloadUrlForLayer
-          - ecr:GetRepositoryPolicy
-          - ecr:DescribeRepositories
-          - ecr:ListImages
-          - ecr:DescribeImages
-          - ecr:BatchGetImage
-          Resource: "*"
-    - PolicyName: RunEcs
-      PolicyDocument:
-        Statement:
-          Effect: Allow
-          Action:
-          - ecs:DeregisterContainerInstance
-          - ecs:DiscoverPollEndpoint
-          - ecs:Poll
-          - ecs:RegisterContainerInstance
-          - ecs:StartTelemetrySession
-          - ecs:Submit*
-          Resource: "*"
-    - PolicyName: WriteLogs
-      PolicyDocument:
-        Statement:
-          Effect: Allow
-          Action:
-          - logs:CreateLogStream
-          - logs:PutLogEvents
-          Resource: "*"
-    - PolicyName: WriteResults
-      PolicyDocument:
-        Statement:
-          - Effect: "Allow"
-            Action: "s3:ListBucket"
-            Resource: ${file(serverless.yml):custom.resultsBucketArn}
-          - Effect: "Allow"
-            Action: "s3:PutObject"
-            Resource: "${file(serverless.yml):custom.resultsBucketArn}/*"
+          Principal:
+            Service: ec2.amazonaws.com
+          Action: sts:AssumeRole
+      Policies:
+      - PolicyName: PullContainer
+        PolicyDocument:
+          Statement:
+            Effect: Allow
+            Action:
+            - ecr:GetAuthorizationToken
+            - ecr:BatchCheckLayerAvailability
+            - ecr:GetDownloadUrlForLayer
+            - ecr:GetRepositoryPolicy
+            - ecr:DescribeRepositories
+            - ecr:ListImages
+            - ecr:DescribeImages
+            - ecr:BatchGetImage
+            Resource: "*"
+      - PolicyName: RunEcs
+        PolicyDocument:
+          Statement:
+            Effect: Allow
+            Action:
+            - ecs:DeregisterContainerInstance
+            - ecs:DiscoverPollEndpoint
+            - ecs:Poll
+            - ecs:RegisterContainerInstance
+            - ecs:StartTelemetrySession
+            - ecs:Submit*
+            Resource: "*"
+      - PolicyName: WriteLogs
+        PolicyDocument:
+          Statement:
+            Effect: Allow
+            Action:
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+            Resource: "*"
+      - PolicyName: WriteResults
+        PolicyDocument:
+          Statement:
+            - Effect: "Allow"
+              Action: "s3:ListBucket"
+              Resource: ${file(serverless.yml):custom.resultsBucketArn}
+            - Effect: "Allow"
+              Action: "s3:PutObject"
+              Resource: "${file(serverless.yml):custom.resultsBucketArn}/*"
+Outputs:
+  AutoScalingGroupName:
+    Description: "Autoscaling group of prediction cluster"
+    Value:
+      Ref: AutoScalingGroup

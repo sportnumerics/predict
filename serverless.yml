@@ -23,8 +23,7 @@ custom:
         - Ref: AWS::AccountId
         - ${self:custom.snsTopicName}
 
-resources:
-  Resources: ${file(resources.yml)}
+resources: ${file(resources.yml)}
 
 functions:
   predict:
