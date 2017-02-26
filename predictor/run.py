@@ -2,7 +2,7 @@ import json
 from predictor import collect, lls_model, postprocess, upload
 
 def run():
-    for x in [1]:
+    for x in [1,2,3]:
         run_division(x)
 
 def run_division(division=1):
