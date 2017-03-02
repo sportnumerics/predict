@@ -27,3 +27,5 @@ def run_division(year, division=1):
     od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(team_map, l_model)
 
     upload.upload_to_s3('years/{year}/divs/{div}/ratings.json'.format(year = year, div = division), od_ratings)
+
+    print('Done processing division {}'.format(division))

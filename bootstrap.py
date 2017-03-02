@@ -19,4 +19,4 @@ def handler(event, context):
                 }
             ]
         })
-    print(response)
+    return response
