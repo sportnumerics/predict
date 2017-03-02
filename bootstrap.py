@@ -9,6 +9,7 @@ def handler(event, context):
         overrides={
             'containerOverrides': [
                 {
+                    'name': 'predict',
                     'environment': [
                         {
                             'name': 'PREDICTION_YEAR',
