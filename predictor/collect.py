@@ -5,8 +5,8 @@ from scipy.sparse import coo_matrix
 import os
 
 datasource_url = os.environ['DATASOURCE_HOST']
-teams_path = '/divs/{div_id}/teams'
-schedule_path = '/teams/{team_id}/schedule'
+teams_path = '/years/{year}/divs/{div_id}/teams'
+schedule_path = '/years/{year}/teams/{team_id}/schedule'
 
 def build_team_map(games):
     ids_to_indicies = {}
@@ -80,19 +80,19 @@ def build_offensive_defensive_constants(games, team_map):
     return np.array([p for g in games for p in (g['result']['pointsFor'], g['result']['pointsAgainst'])])
 
 
-def get_all_games(division):
-    teams = get_all_teams(division)
+def get_all_games(year, division):
+    teams = get_all_teams(year, division)
 
     games = dict()
 
     for team in teams:
-        for game in get_all_games_for_team(team):
+        for game in get_all_games_for_team(year, team):
             games[id_for_game(game)] = game
 
     return {k:v for k,v in games.iteritems() if 'result' in v}
 
-def get_all_teams(division):
-    response = requests.get(datasource_url + teams_path.format(div_id = division))
+def get_all_teams(year, division):
+    response = requests.get(datasource_url + teams_path.format(year = year, div_id = division))
 
     return response.json()['teams']
 
@@ -105,8 +105,8 @@ def id_for_game(game):
         away_id = game['team']['id']
     return '{}_{}_{}'.format(away_id,home_id,game['date'])
 
-def get_all_games_for_team(team):
-    url = datasource_url + schedule_path.format(team_id = team['id'])
+def get_all_games_for_team(year, team):
+    url = datasource_url + schedule_path.format(year = year, team_id = team['id'])
     response = requests.get(url)
 
     team_games = response.json()['schedule']
