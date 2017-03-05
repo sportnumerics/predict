@@ -5,6 +5,7 @@ import os
 prediction_year = os.environ['PREDICTION_YEAR']
 
 def run(year=prediction_year):
+    print('Processing year {}'.format(year))
     for x in [1,2,3]:
         run_division(year, x)
 
