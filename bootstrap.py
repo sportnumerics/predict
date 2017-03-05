@@ -19,4 +19,4 @@ def handler(event, context):
                 }
             ]
         })
-    return response
+    print('Started ecs prediction task')
