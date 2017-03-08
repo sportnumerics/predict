@@ -14,9 +14,6 @@ def build_team_map(games):
     indicies_to_teams = {}
 
     def add_team_if_necessary(team):
-        if (team['id'] is None):
-            team['id'] = hashlib.md5(team['name']).hexdigest()
-
         if (team['id'] not in ids_to_indicies):
             index = len(indicies_to_teams)
             ids_to_indicies[team['id']] = index
