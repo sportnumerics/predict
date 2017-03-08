@@ -25,6 +25,8 @@ Resources:
           Value: ${file(serverless.yml):custom.resultsBucketName}
         - Name: DATASOURCE_HOST
           Value: http://sportnumerics-stats-${opt:stage}.s3-website-ap-southeast-2.amazonaws.com
+        - Name: STAGE
+          Value: ${opt:stage}
   EcsLogs:
     Type: AWS::Logs::LogGroup
   AutoScalingGroup:
