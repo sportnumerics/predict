@@ -10,8 +10,7 @@ provider:
       Ref: PredictTask
   - Effect: "Allow"
     Action: "autoscaling:SetDesiredCapacity"
-    Resource:
-      Ref: AutoScalingGroup
+    Resource: ${self:custom.autoScalingGroupArn}
 package:
   exclude:
   - config/env.sh
@@ -26,6 +25,16 @@ custom:
         - Ref: AWS::Region
         - Ref: AWS::AccountId
         - ${self:custom.snsTopicName}
+  autoScalingGroupArn:
+    Fn::Join:
+      - ':'
+      - - 'arn:aws:autoscaling'
+        - Ref: AWS::Region
+        - Ref: AWS::AccountId
+        - autoScalingGroup
+        - *
+        - autoScalingGroupName
+        - Ref: AutoScalingGroup
 
 resources: ${file(resources.yml)}
 
