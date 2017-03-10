@@ -8,6 +8,10 @@ provider:
     Action: "ecs:RunTask"
     Resource:
       Ref: PredictTask
+  - Effect: "Allow"
+    Action: "autoscaling:SetDesiredCapacity"
+    Resource:
+      Ref: AutoscalingGroup
 package:
   exclude:
   - config/env.sh
