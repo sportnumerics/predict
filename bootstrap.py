@@ -2,8 +2,15 @@ import boto3
 import os
 
 def handler(event, context):
-    client = boto3.client('ecs')
-    response = client.run_task(
+    autoscaling = boto3.client('autoscaling')
+    response = autoscaling.set_desired_capacity(
+        AutoScalingGroupName=os.environ['AS_GROUP_NAME'],
+        DesiredCapacity=1)
+    print(response)
+    print('Set desired capacity of prediction cluster to 1')
+    
+    ecs = boto3.client('ecs')
+    response = ecs.run_task(
         cluster=os.environ['ECS_CLUSTER'],
         taskDefinition=os.environ['ECS_TASK'],
         overrides={
@@ -19,4 +26,5 @@ def handler(event, context):
                 }
             ]
         })
+    print(response)
     print('Started ecs prediction task')

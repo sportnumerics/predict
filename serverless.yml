@@ -38,3 +38,5 @@ functions:
         Ref: Cluster
       ECS_TASK:
         Ref: PredictTask
+      AS_GROUP_NAME:
+        Ref: AutoScalingGroup
