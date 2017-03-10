@@ -32,7 +32,7 @@ custom:
         - Ref: AWS::Region
         - Ref: AWS::AccountId
         - autoScalingGroup
-        - *
+        - '*'
         - autoScalingGroupName
         - Ref: AutoScalingGroup
 
