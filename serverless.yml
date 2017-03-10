@@ -9,7 +9,8 @@ provider:
       - "ecs:RunTask"
       - "ecs:DescribeClusters"
     Resource:
-      Ref: PredictTask
+      - Ref: PredictTask
+      - Ref: Cluster
   - Effect: "Allow"
     Action: "autoscaling:SetDesiredCapacity"
     Resource: "*"
