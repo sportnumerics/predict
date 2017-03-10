@@ -11,7 +11,7 @@ provider:
   - Effect: "Allow"
     Action: "autoscaling:SetDesiredCapacity"
     Resource:
-      Ref: AutoscalingGroup
+      Ref: AutoScalingGroup
 package:
   exclude:
   - config/env.sh
