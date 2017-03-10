@@ -5,7 +5,9 @@ provider:
   region: ap-southeast-2
   iamRoleStatements:
   - Effect: "Allow"
-    Action: "ecs:RunTask"
+    Action:
+      - "ecs:RunTask"
+      - "ecs:DescribeClusters"
     Resource:
       Ref: PredictTask
   - Effect: "Allow"
