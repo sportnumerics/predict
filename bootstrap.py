@@ -5,7 +5,7 @@ import time
 def wait_for_cluster_spin_up(ecs_client, cluster):
     while True:
         print('Polling registered container count...')
-        response = ecs_client.describe_clusters(cluster)
+        response = ecs_client.describe_clusters(clusters=[cluster])
         count = response['clusters'][0]['registeredContainerInstancesCount']
         if count > 0:
             print('Container count is positive, continuing.')
