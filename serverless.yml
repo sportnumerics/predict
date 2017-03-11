@@ -43,6 +43,7 @@ functions:
   predict:
     handler: bootstrap.handler
     runtime: python2.7
+    timeout: 120
     events:
     - sns:
         topicName: ${self:custom.snsTopicName}
