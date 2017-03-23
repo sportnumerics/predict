@@ -2,7 +2,12 @@
 
 set -e
 
-STAGE="dev"
+if [ "$LAMBCI_BRANCH" = "master" ]; then
+  STAGE=prod
+else
+  STAGE=dev
+fi
+
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
 ACCOUNT="265978616089"
 

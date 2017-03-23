@@ -1,7 +1,7 @@
 {
   "docker": {
     "cluster": "lambci-ecs-Cluster-1VR9NSR666BFG",
-    "task": "lambci-ecs-BuildTask-VH2YWGDQ2RZN",
+    "task": "lambci-ecs-BuildTask-OLAYCAC66GYM",
     "runArgs": "-v /var/run/docker.sock:/var/run/docker.sock --ulimit nofile=262144:262144"
   },
   "branches": {
