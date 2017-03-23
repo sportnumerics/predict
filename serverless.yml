@@ -28,14 +28,6 @@ package:
 custom:
   resultsBucketName: sportnumerics-predict-${opt:stage}
   resultsBucketArn: arn:aws:s3:::${self:custom.resultsBucketName}
-  snsTopicName: sportnumerics-predict-${opt:stage}
-  snsTopicArn:
-    Fn::Join:
-      - ':'
-      - - 'arn:aws:sns'
-        - Ref: AWS::Region
-        - Ref: AWS::AccountId
-        - ${self:custom.snsTopicName}
 
 resources: ${file(resources.yml)}
 
@@ -44,10 +36,6 @@ functions:
     handler: bootstrap.handler
     runtime: python2.7
     timeout: 120
-    events:
-    - sns:
-        topicName: ${self:custom.snsTopicName}
-        displayName: "Stats Collection Routing"
     environment:
       ECS_CLUSTER:
         Ref: Cluster
