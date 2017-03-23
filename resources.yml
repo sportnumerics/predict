@@ -11,7 +11,7 @@ Resources:
     Properties:
       ContainerDefinitions:
       - Name: predict
-        Image: 265978616089.dkr.ecr.ap-southeast-2.amazonaws.com/sportnumerics-predictor-dev:latest
+        Image: 265978616089.dkr.ecr.ap-southeast-2.amazonaws.com/sportnumerics-predictor-${opt:stage}:latest
         Memory: 450
         LogConfiguration:
           LogDriver: awslogs
