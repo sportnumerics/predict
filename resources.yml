@@ -4,6 +4,10 @@ Resources:
     Properties:
       BucketName: ${file(serverless.yml):custom.resultsBucketName}
       AccessControl: "PublicRead"
+  ContainerRepository:
+    Type: "AWS::ECR::Repository"
+      Properties:
+        RepositoryName: sportnumerics-predictor-${opt:stage}
   Cluster:
     Type: AWS::ECS::Cluster
   PredictTask:
