@@ -31,7 +31,7 @@ def serialize_rating(rating):
         'overall': round_float_to_decimal(rating['overall']),
     }
 
-def persist(year, division, ratings):
+def persist(year, ratings):
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'season': year},

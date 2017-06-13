@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.sparse import coo_matrix
 import hashlib
-from . import service
+import db_service as service
 
 def build_team_map(games):
     ids_to_indicies = {}
@@ -75,8 +75,8 @@ def build_offensive_defensive_constants(games, team_map):
     return np.array([p for g in games for p in (g['result']['pointsFor'], g['result']['pointsAgainst'])])
 
 
-def get_all_games(year, division):
-    return service.get_all_games(year, division, id_for_game)
+def get_all_games(year):
+    return service.get_all_games(year, id_for_game)
 
 def id_for_game(game):
     if game['location']['type'] == 'home':

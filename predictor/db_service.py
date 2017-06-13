@@ -12,8 +12,8 @@ def parse_results(result):
         'pointsAgainst': int(result['pointsAgainst'])
     }
 
-def get_all_games(year, division, id_for_game):
-    teams = query_all_teams(year, division)
+def get_all_games(year, id_for_game):
+    teams = query_all_teams(year)
 
     def team_to_games(acc, team):
         def team_game_to_game(team_game):
@@ -32,17 +32,15 @@ def get_all_games(year, division, id_for_game):
         return acc
 
     games = reduce(team_to_games, teams, dict())
-    print 'Obtained games:', games
     return games
 
-def query_all_teams(year, division):
+def query_all_teams(year):
     season = str(year)
-    div = str(division)
     last_evaluated_key = None
     items = []
     query_args = {
         'IndexName': 'schedule',
-        'KeyConditionExpression': Key('season').eq(season) & Key('div').eq(div)
+        'KeyConditionExpression': Key('season').eq(season)
     }
     while True:
         if last_evaluated_key:
