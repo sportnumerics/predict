@@ -26,8 +26,15 @@ package:
   exclude:
   - config/env.sh
 custom:
-  resultsBucketName: sportnumerics-predict-${opt:stage}
-  resultsBucketArn: arn:aws:s3:::${self:custom.resultsBucketName}
+  teamsTableVersion: 2
+  teamsTableName: sportnumerics-stats-teams-${opt:stage}-v${self:custom.teamsTableVersion}
+  teamsTableArn:
+    Fn::Join:
+    - ":"
+    - - "arn:aws:dynamodb"
+      - Ref: AWS::Region
+      - Ref: AWS::AccountId
+      - table/${self:custom.teamsTableName}
 
 resources: ${file(resources.yml)}
 

@@ -42,7 +42,7 @@ def calculate_lss_offensive_defensive_ratings(team_map, model):
             'overall': overall[i]
         }
 
-    return {'ratings': results}
+    return results
 
 def calculate_pcd_ratings(team_map, model):
     # rating is determined by how well a team would do if it played all other
