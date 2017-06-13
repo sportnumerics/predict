@@ -26,8 +26,7 @@ package:
   exclude:
   - config/env.sh
 custom:
-  teamsTableVersion: 2
-  teamsTableName: sportnumerics-stats-teams-${opt:stage}-v${self:custom.teamsTableVersion}
+  teamsTableName: ${cf:sportnumerics-stats-${opt:stage}.TeamsTableName}
   teamsTableArn:
     Fn::Join:
     - ":"
