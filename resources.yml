@@ -24,6 +24,9 @@ Resources:
           Value: ${file(serverless.yml):custom.teamsTableName}
         - Name: STAGE
           Value: ${opt:stage}
+        - Name: AWS_REGION
+          Value:
+            Ref: AWS::Region
   EcsLogs:
     Type: AWS::Logs::LogGroup
   AutoScalingGroup:
