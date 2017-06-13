@@ -24,7 +24,7 @@ Resources:
           Value: ${file(serverless.yml):custom.teamsTableName}
         - Name: STAGE
           Value: ${opt:stage}
-        - Name: AWS_REGION
+        - Name: AWS_DEFAULT_REGION
           Value:
             Ref: AWS::Region
   EcsLogs:
