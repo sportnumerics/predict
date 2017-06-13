@@ -38,8 +38,8 @@ def persist(year, ratings):
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'season': year},
-            UpdateExpression='SET rating = :rating',
+            UpdateExpression='SET ratings = :ratings',
             ExpressionAttributeValues={
-                ':rating': serialize_rating(rating, dt)
+                ':ratings': serialize_rating(rating, dt)
             }
         )
