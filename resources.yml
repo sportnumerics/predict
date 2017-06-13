@@ -148,7 +148,7 @@ Resources:
           Statement:
             - Effect: "Allow"
               Action: "dynamodb:UpdateItem"
-              Resource: "${self:custom.teamsTableArn}"
+              Resource: ${self:custom.teamsTableArn}
 Outputs:
   AutoScalingGroupName:
     Description: "Autoscaling group of prediction cluster"
