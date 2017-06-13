@@ -142,13 +142,18 @@ Resources:
           Statement:
             - Effect: "Allow"
               Action: "dynamodb:Query"
-              Resource: "${file(serverless.yml):custom.teamsTableArn}/index/*"
+              Resource:
+                Fn::Join:
+                - ""
+                - - ${file(serverless.yml):custom.teamsTableArn}
+                  - "/index/*"
       - PolicyName: WriteResults
         PolicyDocument:
           Statement:
             - Effect: "Allow"
               Action: "dynamodb:UpdateItem"
-              Resource: ${file(serverless.yml):custom.teamsTableArn}
+              Resource:
+                - ${file(serverless.yml):custom.teamsTableArn}
 Outputs:
   AutoScalingGroupName:
     Description: "Autoscaling group of prediction cluster"
