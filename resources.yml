@@ -141,7 +141,9 @@ Resources:
         PolicyDocument:
           Statement:
             - Effect: "Allow"
-              Action: "dynamodb:UpdateItem"
+              Action: 
+                - "dynamodb:UpdateItem"
+                - "dynamodb:Query"
               Resource: ${self:custom.teamsTableArn}
 Outputs:
   AutoScalingGroupName:
