@@ -1,6 +1,7 @@
 import boto3
 import os
 import decimal
+from datetime import datetime
 
 dynamodb = boto3.resource('dynamodb')
 teams_table = dynamodb.Table(os.environ['TEAMS_TABLE_NAME'])
@@ -24,19 +25,21 @@ def round_float_to_decimal(float_value):
 
         return decimal_value
 
-def serialize_rating(rating):
+def serialize_rating(rating, timestamp):
     return {
         'offense': round_float_to_decimal(rating['offense']),
         'defense': round_float_to_decimal(rating['defense']),
         'overall': round_float_to_decimal(rating['overall']),
+        'timestamp': timestamp
     }
 
 def persist(year, ratings):
+    dt = datetime.now().isoformat()
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'season': year},
             UpdateExpression='SET rating = :rating',
             ExpressionAttributeValues={
-                ':rating': serialize_rating(rating)
+                ':rating': serialize_rating(rating, dt)
             }
         )
