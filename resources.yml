@@ -137,13 +137,17 @@ Resources:
             - logs:CreateLogStream
             - logs:PutLogEvents
             Resource: "*"
+      - PolicyName: ReadStats
+        PolicyDocument:
+          Statement:
+            - Effect: "Allow"
+              Action: "dynamodb:Query"
+              Resource: ${self:custom.teamsTableArn}/index/*
       - PolicyName: WriteResults
         PolicyDocument:
           Statement:
             - Effect: "Allow"
-              Action: 
-                - "dynamodb:UpdateItem"
-                - "dynamodb:Query"
+              Action: "dynamodb:UpdateItem"
               Resource: ${self:custom.teamsTableArn}
 Outputs:
   AutoScalingGroupName:
