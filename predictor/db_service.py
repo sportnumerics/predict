@@ -18,7 +18,10 @@ def get_all_games(year, id_for_game):
     def team_to_games(acc, team):
         def team_game_to_game(team_game):
             game = copy.deepcopy(team_game)
-            game['team'] = team['team']
+            game['team'] = {
+                'id': team['id'],
+                'name': team['name']
+            }
             if 'result' in game:
                 game['result'] = parse_results(game['result'])
             return game
