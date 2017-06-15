@@ -3,7 +3,12 @@
 set -e
 
 if [ "$LAMBCI_BRANCH" = "master" ]; then
-  STAGE=prod
+  pip install --user awscli
+  STACK_PREFIX="sportnumerics-predict"
+  STAGE="prod-green"
+  if aws cloudformation describe-stacks --stack-name "$STACK_PREFIX-$STAGE"; then
+    STAGE="prod-blue"
+  fi
 else
   STAGE=dev
 fi
