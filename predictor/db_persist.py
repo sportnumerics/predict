@@ -34,7 +34,7 @@ def serialize_rating(rating, timestamp):
     }
 
 def persist(year, ratings):
-    dt = datetime.now().isoformat()
+    dt = datetime.utcnow().isoformat()
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'season': year},
