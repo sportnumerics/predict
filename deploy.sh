@@ -4,9 +4,12 @@ set -e
 
 REGION="ap-southeast-2"
 
+./decrypt.sh
+source ./config/env.sh
+unset AWS_SESSION_TOKEN
+
 if [ "$LAMBCI_BRANCH" = "master" ]; then
   CDN_STACK_NAME="sportnumerics-explorer-cdn-prod"
-  aws configure set region $REGION
   ACTIVE_DEPLOYMENT=$(aws cloudformation describe-stacks --stack-name $CDN_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`ExplorerStageDeployment`].OutputValue' --output text)
   if [ "$ACTIVE_DEPLOYMENT" = "prodgreen" ]; then
     STAGE="prodblue"
@@ -21,10 +24,6 @@ fi
 
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
 ACCOUNT="265978616089"
-
-./decrypt.sh
-source ./config/env.sh
-unset AWS_SESSION_TOKEN
 
 docker --version
 eval $(aws ecr get-login --region $REGION)
