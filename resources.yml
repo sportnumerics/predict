@@ -143,10 +143,7 @@ Resources:
             - Effect: "Allow"
               Action: "dynamodb:Query"
               Resource:
-                Fn::Join:
-                - ""
-                - - ${file(serverless.yml):custom.teamsTableArn}
-                  - "/index/*"
+                - ${file(serverless.yml):custom.teamsTableArn}
       - PolicyName: WriteResults
         PolicyDocument:
           Statement:
