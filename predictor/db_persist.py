@@ -37,12 +37,9 @@ def persist(year, ratings):
     dt = datetime.utcnow().isoformat()
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
-            Key={'id': team_id, '#year': year},
+            Key={'id': team_id, 'year': year},
             UpdateExpression='SET ratings = :ratings',
             ExpressionAttributeValues={
                 ':ratings': serialize_rating(rating, dt)
-            },
-            ExpressionAttributeNames={
-                '#year': 'year'
             }
         )
