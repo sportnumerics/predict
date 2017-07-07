@@ -42,10 +42,7 @@ def query_all_teams(year):
     last_evaluated_key = None
     items = []
     query_args = {
-        'KeyConditionExpression': Key('#year').eq(season),
-        'ExpressionAttributeNames': {
-            '#year': 'year'
-        }
+        'KeyConditionExpression': Key('year').eq(season)
     }
     while True:
         if last_evaluated_key:
