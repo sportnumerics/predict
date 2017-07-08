@@ -46,9 +46,9 @@ def query_all_teams(year):
     }
     while True:
         if last_evaluated_key:
-            query_args['LastEvaluatedKey'] = last_evaluated_key
-        elif 'LastEvaluatedKey' in query_args:
-            del query_args['LastEvaluatedKey']
+            query_args['ExclusiveStartKey'] = last_evaluated_key
+        elif 'ExclusiveStartKey' in query_args:
+            del query_args['ExclusiveStartKey']
 
         result = teams_table.query(**query_args)
         items.extend(result['Items'])
