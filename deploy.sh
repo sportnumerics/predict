@@ -2,15 +2,14 @@
 
 set -e
 
-REGION="ap-southeast-2"
-
 ./decrypt.sh
 source ./config/env.sh
 unset AWS_SESSION_TOKEN
 
 if [ "$LAMBCI_BRANCH" = "master" ]; then
+  CDN_STACK_REGION="ap-southeast-2"
   CDN_STACK_NAME="sportnumerics-explorer-cdn-prod"
-  ACTIVE_DEPLOYMENT=$(aws cloudformation describe-stacks --stack-name $CDN_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`ExplorerStageDeployment`].OutputValue' --output text)
+  ACTIVE_DEPLOYMENT=$(aws --region $CDN_STACK_REGION cloudformation describe-stacks --stack-name $CDN_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`ExplorerStageDeployment`].OutputValue' --output text)
   if [ "$ACTIVE_DEPLOYMENT" = "prodgreen" ]; then
     STAGE="prodblue"
     EXPLORER_API_PREFIX="explorer-api-blue"
@@ -23,7 +22,6 @@ else
 fi
 
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
-ACCOUNT="265978616089"
 
 docker --version
 eval $(aws ecr get-login --region $REGION)
@@ -31,5 +29,5 @@ docker build -t $IMAGE_NAME .
 
 SLS_DEBUG=* node_modules/.bin/sls deploy --stage=$STAGE --verbose
 
-docker tag $IMAGE_NAME:latest $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$IMAGE_NAME:latest
-docker push $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$IMAGE_NAME:latest
+docker tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:latest
+docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:latest
