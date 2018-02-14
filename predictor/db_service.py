@@ -16,6 +16,9 @@ def get_all_games(year, id_for_game):
     teams = query_all_teams(year)
 
     def team_to_games(acc, team):
+        if 'schedule' not in team:
+            return acc
+
         def team_game_to_game(team_game):
             game = copy.deepcopy(team_game)
             game['team'] = {
