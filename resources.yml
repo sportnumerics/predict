@@ -17,7 +17,6 @@ Resources:
               - ".dkr.ecr."
               - Ref: AWS::Region
               - ".amazonaws.com/sportnumerics-predictor-${opt:stage}:latest"
-        Memory: 450
         LogConfiguration:
           LogDriver: awslogs
           Options:
@@ -33,132 +32,64 @@ Resources:
         - Name: AWS_DEFAULT_REGION
           Value:
             Ref: AWS::Region
+      Memory: 1GB
+      Cpu: 256
+      RequiresCompatibilities:
+        - FARGATE
+      TaskRoleArn:
+        Ref: TaskRole
+      ExecutionRoleArn:
+        Ref: TaskExecutionRole
+      NetworkMode: awsvpc
   EcsLogs:
     Type: AWS::Logs::LogGroup
-  AutoScalingGroup:
-    Type: AWS::AutoScaling::AutoScalingGroup
-    Properties:
-      AvailabilityZones:
-        Fn::GetAZs: ''
-      LaunchConfigurationName:
-        Ref: LaunchConfig
-      DesiredCapacity: '1'
-      MinSize: '0'
-      MaxSize: '4'
-    CreationPolicy:
-      ResourceSignal:
-        Count: '1'
-  ScaleOffPolicy:
-    Type: AWS::AutoScaling::ScalingPolicy
-    Properties:
-      AdjustmentType: ExactCapacity
-      AutoScalingGroupName:
-        Ref: AutoScalingGroup
-      Cooldown: '1'
-      ScalingAdjustment: '0'
-  CPUUnderutilizedAlarm:
-    Type: AWS::CloudWatch::Alarm
-    Properties:
-      EvaluationPeriods: '3'
-      Statistic: Maximum
-      Threshold: '5'
-      AlarmDescription: Alarm if CPU is never above 5% in 15 minutes
-      Period: '300'
-      AlarmActions:
-      - Ref: ScaleOffPolicy
-      Namespace: AWS/EC2
-      Dimensions:
-      - Name: AutoScalingGroupName
-        Value:
-          Ref: AutoScalingGroup
-      ComparisonOperator: LessThanOrEqualToThreshold
-      MetricName: CPUUtilization
-  LaunchConfig:
-    Type: AWS::AutoScaling::LaunchConfiguration
-    Properties:
-      ImageId: ami-8af8ffe9
-      IamInstanceProfile:
-        Ref: InstanceProfile
-      InstanceType: t2.micro
-      UserData:
-        Fn::Base64:
-          Fn::Join:
-          - ''
-          - - "#!/bin/bash\n"
-            - "echo ECS_CLUSTER="
-            - Ref: Cluster
-            - " >> /etc/ecs/ecs.config\n"
-            - "yum install -y aws-cfn-bootstrap\n"
-            - "/opt/aws/bin/cfn-signal -e $? --resource AutoScalingGroup --stack "
-            - Ref: AWS::StackName
-            - " --region "
-            - Ref: AWS::Region
-  InstanceProfile:
-    Type: AWS::IAM::InstanceProfile
-    Properties:
-      Path: "/"
-      Roles:
-      - Ref: InstanceRole
-  InstanceRole:
+  TaskExecutionRole:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
         Statement:
-          Effect: Allow
-          Principal:
-            Service: ec2.amazonaws.com
-          Action: sts:AssumeRole
+          - Effect: Allow
+            Principal:
+              Service:
+                - ecs-tasks.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
       Policies:
-      - PolicyName: PullContainer
-        PolicyDocument:
-          Statement:
-            Effect: Allow
+        - PolicyName: TaskExecutionRole
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'ecr:GetAuthorizationToken'
+                  - 'ecr:BatchCheckLayerAvailability'
+                  - 'ecr:GetDownloadUrlForLayer'
+                  - 'ecr:BatchGetImage'
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource: '*'
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ecs-tasks.amazonaws.com
             Action:
-            - ecr:GetAuthorizationToken
-            - ecr:BatchCheckLayerAvailability
-            - ecr:GetDownloadUrlForLayer
-            - ecr:GetRepositoryPolicy
-            - ecr:DescribeRepositories
-            - ecr:ListImages
-            - ecr:DescribeImages
-            - ecr:BatchGetImage
-            Resource: "*"
-      - PolicyName: RunEcs
-        PolicyDocument:
-          Statement:
-            Effect: Allow
-            Action:
-            - ecs:DeregisterContainerInstance
-            - ecs:DiscoverPollEndpoint
-            - ecs:Poll
-            - ecs:RegisterContainerInstance
-            - ecs:StartTelemetrySession
-            - ecs:Submit*
-            Resource: "*"
-      - PolicyName: WriteLogs
-        PolicyDocument:
-          Statement:
-            Effect: Allow
-            Action:
-            - logs:CreateLogStream
-            - logs:PutLogEvents
-            Resource: "*"
-      - PolicyName: ReadStats
-        PolicyDocument:
-          Statement:
-            - Effect: "Allow"
-              Action: "dynamodb:Query"
-              Resource:
-                - ${file(serverless.yml):custom.teamsTableArn}
-      - PolicyName: WriteResults
-        PolicyDocument:
-          Statement:
-            - Effect: "Allow"
-              Action: "dynamodb:UpdateItem"
-              Resource:
-                - ${file(serverless.yml):custom.teamsTableArn}
-Outputs:
-  AutoScalingGroupName:
-    Description: "Autoscaling group of prediction cluster"
-    Value:
-      Ref: AutoScalingGroup
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: ReadStats
+          PolicyDocument:
+            Statement:
+              - Effect: "Allow"
+                Action: "dynamodb:Query"
+                Resource:
+                  - ${file(serverless.yml):custom.teamsTableArn}
+        - PolicyName: WriteResults
+          PolicyDocument:
+            Statement:
+              - Effect: "Allow"
+                Action: "dynamodb:UpdateItem"
+                Resource:
+                  - ${file(serverless.yml):custom.teamsTableArn}
