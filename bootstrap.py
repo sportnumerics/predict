@@ -2,6 +2,7 @@ import boto3
 import os
 import time
 
+
 def wait_for_cluster_spin_up(ecs_client, cluster):
     while True:
         print('Polling registered container count...')
@@ -11,6 +12,7 @@ def wait_for_cluster_spin_up(ecs_client, cluster):
             print('Container count is positive, continuing.')
             break
         time.sleep(10)
+
 
 def handler(event, context):
     autoscaling = boto3.client('autoscaling')
