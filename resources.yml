@@ -11,7 +11,12 @@ Resources:
       ContainerDefinitions:
       - Name: predict
         Image: 
-          Fn::Sub: "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/sportnumerics-predictor-${opt:stage}:latest"
+          Fn::Join: 
+            - ""
+            - - Ref: AWS::AccountId
+              - ".dkr.ecr."
+              - Ref: AWS::Region
+              - ".amazonaws.com/sportnumerics-predictor-${opt:stage}:latest"
         Memory: 450
         LogConfiguration:
           LogDriver: awslogs
