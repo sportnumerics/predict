@@ -2,7 +2,6 @@ service: sportnumerics-predict
 provider:
   name: aws
   stage: dev
-  region: ap-southeast-2
   iamRoleStatements:
   - Effect: "Allow"
     Action:
