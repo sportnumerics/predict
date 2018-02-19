@@ -6,21 +6,8 @@ provider:
   - Effect: "Allow"
     Action:
       - "ecs:RunTask"
-      - "ecs:DescribeClusters"
     Resource:
       - Ref: PredictTask
-      - Fn::Join:
-          - ':'
-          - - 'arn:aws:ecs'
-            - Ref: AWS::Region
-            - Ref: AWS::AccountId
-            - Fn::Join:
-              - '/'
-              - - 'cluster'
-                - Ref: Cluster
-  - Effect: "Allow"
-    Action: "autoscaling:SetDesiredCapacity"
-    Resource: "*"
 package:
   exclude:
   - config/env.sh
@@ -46,5 +33,3 @@ functions:
         Ref: Cluster
       ECS_TASK:
         Ref: PredictTask
-      AS_GROUP_NAME:
-        Ref: AutoScalingGroup
