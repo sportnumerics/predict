@@ -8,6 +8,11 @@ provider:
       - "ecs:RunTask"
     Resource:
       - Ref: PredictTask
+  - Effect: "Allow"
+    Action:
+      - "iam:PassRole"
+    Resource:
+      - Ref: TaskExecutionRole
 package:
   exclude:
   - config/env.sh
