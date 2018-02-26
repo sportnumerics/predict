@@ -13,6 +13,7 @@ provider:
       - "iam:PassRole"
     Resource:
       - Fn::GetAtt: [TaskExecutionRole, Arn]
+      - Fn::GetAtt: [TaskRole, Arn]
 package:
   exclude:
   - config/env.sh
