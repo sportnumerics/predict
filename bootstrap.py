@@ -30,7 +30,7 @@ def handler(event, context):
                     'subnet-53f5bb0a',
                     'subnet-24bfda41'
                 ],
-                'assignPublicIp': 'DISABLED'
+                'assignPublicIp': 'ENABLED'
             }
         })
     print(response)
