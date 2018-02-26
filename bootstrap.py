@@ -20,6 +20,18 @@ def handler(event, context):
                     ]
                 }
             ]
+        },
+        count=1,
+        platformVersion='LATEST',
+        launchType='FARGATE',
+        networkConfiguration={
+            'awsvpcConfiguration': {
+                'subnets': [
+                    'subnet-53f5bb0a',
+                    'subnet-24bfda41'
+                ],
+                'assignPublicIp': 'DISABLED'
+            }
         })
     print(response)
     print('Started ecs prediction task')
