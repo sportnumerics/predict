@@ -1,7 +1,7 @@
 import boto3
 import os
 import decimal
-from datetime import datetime
+from datetime import datetime, timezone
 
 dynamodb = boto3.resource('dynamodb')
 teams_table = dynamodb.Table(os.environ['TEAMS_TABLE_NAME'])
@@ -34,7 +34,7 @@ def serialize_rating(rating, timestamp):
     }
 
 def persist(year, ratings):
-    dt = datetime.utcnow().isoformat()
+    dt = datetime.now(timezone.utc).isoformat()
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'year': year},

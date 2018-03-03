@@ -93,3 +93,4 @@ output/
 # node.js for serverless
 node_modules/
 .serverless/
+.vscode/
