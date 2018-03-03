@@ -1,10 +1,12 @@
 import boto3
 import os
 import decimal
-from datetime import datetime, timezone
+from datetime import datetime
+from utc import utc
 
 dynamodb = boto3.resource('dynamodb')
 teams_table = dynamodb.Table(os.environ['TEAMS_TABLE_NAME'])
+
 
 def round_float_to_decimal(float_value):
     """
@@ -16,7 +18,7 @@ def round_float_to_decimal(float_value):
     # uses. Doing so causes this routine to preserve as much precision as
     # boto3 will allow.
     with decimal.localcontext(boto3.dynamodb.types.DYNAMODB_CONTEXT) as \
-         decimalcontext:
+            decimalcontext:
 
         # Allow rounding.
         decimalcontext.traps[decimal.Inexact] = 0
@@ -24,6 +26,7 @@ def round_float_to_decimal(float_value):
         decimal_value = decimalcontext.create_decimal_from_float(float_value)
 
         return decimal_value
+
 
 def serialize_rating(rating, timestamp):
     return {
@@ -33,8 +36,9 @@ def serialize_rating(rating, timestamp):
         'timestamp': timestamp
     }
 
+
 def persist(year, ratings):
-    dt = datetime.now(timezone.utc).isoformat()
+    dt = datetime.now(utc).isoformat()
     for team_id, rating in ratings.iteritems():
         teams_table.update_item(
             Key={'id': team_id, 'year': year},

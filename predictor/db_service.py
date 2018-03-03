@@ -6,11 +6,13 @@ from boto3.dynamodb.conditions import Key
 dynamodb = boto3.resource('dynamodb')
 teams_table = dynamodb.Table(os.environ['TEAMS_TABLE_NAME'])
 
+
 def parse_results(result):
     return {
         'pointsFor': int(result['pointsFor']),
         'pointsAgainst': int(result['pointsAgainst'])
     }
+
 
 def get_all_games(year, id_for_game):
     teams = query_all_teams(year)
@@ -30,7 +32,7 @@ def get_all_games(year, id_for_game):
             return game
 
         acc.update({
-            id_for_game(game):game
+            id_for_game(game): game
             for game
             in map(team_game_to_game, team['schedule'])
             if 'result' in game
@@ -39,6 +41,7 @@ def get_all_games(year, id_for_game):
 
     games = reduce(team_to_games, teams, dict())
     return games
+
 
 def query_all_teams(year):
     season = str(year)
