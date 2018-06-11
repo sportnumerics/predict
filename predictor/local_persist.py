@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def write(key, object):
     filename = os.path.join('output', key)
     if not os.path.exists(os.path.dirname(filename)):

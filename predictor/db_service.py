@@ -1,10 +1,10 @@
 import os
 import boto3
 import copy
-from boto3.dynamodb.conditions import Key
+import json
 
-dynamodb = boto3.resource('dynamodb')
-teams_table = dynamodb.Table(os.environ['TEAMS_TABLE_NAME'])
+s3 = boto3.client('s3')
+results_bucket = os.environ['RESULTS_BUCKET_NAME']
 
 
 def parse_results(result):
@@ -14,12 +14,12 @@ def parse_results(result):
     }
 
 
-def get_all_games(year, id_for_game):
-    teams = query_all_teams(year)
+def get_all_games(teams, id_for_game):
+    games = {}
 
-    def team_to_games(acc, team):
+    for team in teams:
         if 'schedule' not in team:
-            return acc
+            continue
 
         def team_game_to_game(team_game):
             game = copy.deepcopy(team_game)
@@ -31,36 +31,51 @@ def get_all_games(year, id_for_game):
                 game['result'] = parse_results(game['result'])
             return game
 
-        acc.update({
-            id_for_game(game): game
-            for game
-            in map(team_game_to_game, team['schedule'])
-            if 'result' in game
-        })
-        return acc
+        for team_game in team['schedule']:
+            game = team_game_to_game(team_game)
+            if 'result' in game:
+                games[id_for_game(game)] = game
 
-    games = reduce(team_to_games, teams, dict())
     return games
 
 
 def query_all_teams(year):
+    keys = query_all_teams_keys(year)
+
+    def query_team(key_contents):
+        key = key_contents['Key']
+        query_args = {
+            'Bucket': results_bucket,
+            'Key': key
+        }
+
+        print('getting {}'.format(key))
+        response = s3.get_object(**query_args)
+
+        return json.load(response['Body'])
+
+    teams = list(map(query_team, keys))
+
+    return teams
+
+
+def query_all_teams_keys(year):
     season = str(year)
-    last_evaluated_key = None
-    items = []
+    continuation_token = None
+    keys = []
     query_args = {
-        'KeyConditionExpression': Key('year').eq(season)
+        'Bucket': results_bucket,
+        'Prefix': '{}/'.format(season)
     }
     while True:
-        if last_evaluated_key:
-            query_args['ExclusiveStartKey'] = last_evaluated_key
-        elif 'ExclusiveStartKey' in query_args:
-            del query_args['ExclusiveStartKey']
+        if continuation_token:
+            query_args['ContinuationToken'] = continuation_token
 
-        result = teams_table.query(**query_args)
-        items.extend(result['Items'])
-        if 'LastEvaluatedKey' in result:
-            last_evaluated_key = result['LastEvaluatedKey']
+        result = s3.list_objects_v2(**query_args)
+        keys.extend(result['Contents'])
+        if 'NextContinuationToken' in result:
+            continuation_token = result['NextContinuationToken']
         else:
             break
 
-    return items
+    return keys

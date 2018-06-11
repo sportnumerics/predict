@@ -1,5 +1,8 @@
-import copy, math
+import math
 import numpy as np
+from datetime import datetime
+from . import utc
+
 
 def collect_ratings(team_map, rating_function):
     n_teams = len(team_map['indicies_to_teams'])
@@ -14,6 +17,7 @@ def collect_ratings(team_map, rating_function):
 
     return sorted(results, key=lambda x: -x['rating'])
 
+
 def calculate_lls_ratings(team_map, model):
     ratings = model.corrected_ratings()
 
@@ -21,6 +25,7 @@ def calculate_lls_ratings(team_map, model):
         return ratings[i]
 
     return collect_ratings(team_map, rating_function)
+
 
 def calculate_lss_offensive_defensive_ratings(team_map, model):
     n_teams = len(team_map['indicies_to_teams'])
@@ -36,13 +41,13 @@ def calculate_lss_offensive_defensive_ratings(team_map, model):
     for i in range(0, n_teams):
         team = team_map['indicies_to_teams'][i]
         results[team['id']] = {
-            'team': team,
             'offense': ratings[i],
             'defense': ratings[i+offset],
             'overall': overall[i]
         }
 
     return results
+
 
 def calculate_pcd_ratings(team_map, model):
     # rating is determined by how well a team would do if it played all other
@@ -54,17 +59,19 @@ def calculate_pcd_ratings(team_map, model):
         rating = 0
         for j in range(i, n_teams):
             if (i != j):
-                rating += model.predict(i,j) - model.predict(j,i)
+                rating += model.predict(i, j) - model.predict(j, i)
         return rating
 
     return collect_ratings(team_map, rating_function)
 
+
 def amend_pcd_features(team_map, od_ratings, pcd_model):
     for team in od_ratings['ratings'].values():
         index = team_map['ids_to_indicies'][team['team']['id']]
-        team['pcdOffense'] = pcd_model.offensive_factors[:,index].tolist()
-        team['pcdDefense'] = pcd_model.defensive_factors[:,index].tolist()
+        team['pcdOffense'] = pcd_model.offensive_factors[:, index].tolist()
+        team['pcdDefense'] = pcd_model.defensive_factors[:, index].tolist()
     return od_ratings
+
 
 def predict_games(samples, team_map, model):
     predictions = []
@@ -77,6 +84,7 @@ def predict_games(samples, team_map, model):
             'predicted': prediction
         })
     return predictions
+
 
 def calculate_pcd_improvement(games, team_map, lls_model, pcd_model):
     improvements = []
@@ -95,13 +103,23 @@ def calculate_pcd_improvement(games, team_map, lls_model, pcd_model):
         pcdError = abs(pcdPF - pf) + abs(pcdPA - pa)
         improvements.append(llsError - pcdError)
 
-
-        w = math.copysign(1,pf-pa)
-        llsW = math.copysign(1,llsPF-llsPA)
-        pcdW = math.copysign(1,pcdPF-pcdPA)
+        w = math.copysign(1, pf-pa)
+        llsW = math.copysign(1, llsPF-llsPA)
+        pcdW = math.copysign(1, pcdPF-pcdPA)
 
         llsCorrect = llsW * w > 0
         pcdCorrect = pcdW * w > 0
         corrections.append(1 if not llsCorrect and pcdCorrect else 0)
         errors.append(1 if not pcdCorrect and llsCorrect else 0)
     return improvements, corrections, errors
+
+
+def merge_results_with_teams_dict(teams_dict, od_results):
+    dt = datetime.now(utc.utc).isoformat()
+
+    for team_id, result in od_results.items():
+        result['timestamp'] = dt
+        if team_id in teams_dict:
+            teams_dict[team_id]['ratings'] = result
+
+    return teams_dict

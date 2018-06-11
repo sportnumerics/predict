@@ -1,13 +1,21 @@
-import json
-from predictor import collect, lls_model, postprocess, db_persist as persistence
+from . import collect,\
+    lls_model,\
+    postprocess,\
+    db_service as service,\
+    db_persist as persistence
 import os
 
 prediction_year = os.environ['PREDICTION_YEAR']
 
+
 def run(year=prediction_year):
     print('Processing year {}'.format(year))
-    
-    games = collect.get_all_games(year)
+
+    teams = service.query_all_teams(year)
+
+    teams_dict = collect.build_teams_dictionary(teams)
+
+    games = service.get_all_games(teams, collect.id_for_game)
 
     games_list = list(games.values())
 
@@ -16,12 +24,22 @@ def run(year=prediction_year):
     # offensive defensive model
     l_model = lls_model.Model()
 
-    coefficients = collect.build_offensive_defensive_coefficient_matrix(games_list, team_map)
+    coefficients = collect.build_offensive_defensive_coefficient_matrix(
+        games_list,
+        team_map)
 
-    constants = collect.build_offensive_defensive_constants(games_list, team_map)
+    constants = collect.build_offensive_defensive_constants(
+        games_list,
+        team_map)
 
     l_model.train(coefficients, constants)
 
-    od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(team_map, l_model)
+    od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(
+        team_map,
+        l_model)
 
-    persistence.persist(year, od_ratings)
+    teams_with_ratings = postprocess.merge_results_with_teams_dict(
+        teams_dict,
+        od_ratings)
+
+    persistence.persist(year, teams_with_ratings)
