@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 from scipy.sparse import coo_matrix
 
 
@@ -120,3 +121,35 @@ def build_teams_dictionary(teams):
             print('warning: team without id?: {}'.format(team))
 
     return teams_dict
+
+
+def parse_results(result):
+    return {
+        'pointsFor': int(result['pointsFor']),
+        'pointsAgainst': int(result['pointsAgainst'])
+    }
+
+
+def get_all_games(teams):
+    games = {}
+
+    for team in teams:
+        if 'schedule' not in team:
+            continue
+
+        def team_game_to_game(team_game):
+            game = copy.deepcopy(team_game)
+            game['team'] = {
+                'id': team['id'],
+                'name': team['name']
+            }
+            if 'result' in game:
+                game['result'] = parse_results(game['result'])
+            return game
+
+        for team_game in team['schedule']:
+            game = team_game_to_game(team_game)
+            if 'result' in game:
+                games[id_for_game(game)] = game
+
+    return games

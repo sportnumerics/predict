@@ -1,8 +1,8 @@
 from . import collect,\
     lls_model,\
     postprocess,\
-    db_service as service,\
-    db_persist as persistence
+    persistence,\
+    service
 import os
 
 prediction_year = os.environ['PREDICTION_YEAR']
@@ -15,7 +15,7 @@ def run(year=prediction_year):
 
     teams_dict = collect.build_teams_dictionary(teams)
 
-    games = service.get_all_games(teams, collect.id_for_game)
+    games = collect.get_all_games(teams)
 
     games_list = list(games.values())
 

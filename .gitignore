@@ -94,3 +94,4 @@ output/
 node_modules/
 .serverless/
 .vscode/
+bucket/
