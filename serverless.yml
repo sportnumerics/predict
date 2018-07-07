@@ -23,7 +23,7 @@ custom:
     Fn::Join:
     - ":"
     - - "arn:aws:s3"
-      - Ref: AWS::Region
+      - ""
       - Ref: AWS::AccountId
       - bucket/${self:custom.teamsBucketName}
 
