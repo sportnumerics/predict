@@ -1,4 +1,4 @@
-FROM python:2
+FROM python:3
 WORKDIR /code
 ADD requirements.txt .
 RUN pip --no-cache-dir install -r requirements.txt
