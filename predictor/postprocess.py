@@ -2,6 +2,7 @@ import math
 import numpy as np
 from datetime import datetime
 from . import utc
+from . import collect
 
 
 def collect_ratings(team_map, rating_function):
@@ -123,3 +124,76 @@ def merge_results_with_teams_dict(teams_dict, od_results):
             teams_dict[team_id]['ratings'] = result
 
     return teams_dict
+
+
+def unseen_games_from_seen_games(all_games, seen_games):
+    unseen_games = all_games.copy()
+
+    print('culling {} seen games from {} total games'.format(
+        len(seen_games),
+        len(all_games)))
+
+    for game_id, game in seen_games.items():
+        if game_id in unseen_games:
+            del unseen_games[game_id]
+
+    return unseen_games
+
+
+def error_per_unseen_game(teams_dict, seen_games):
+    total_squared_error = 0
+    score_count = 0
+    errors = []
+
+    print('evaluating error for {} teams'.format(len(teams_dict)))
+
+    all_games = collect.get_all_games(teams_dict.values())
+
+    unseen_games = unseen_games_from_seen_games(all_games, seen_games)
+
+    for game_id, game in unseen_games.items():
+        if (game['team']['id'] not in teams_dict or
+                game['opponent']['id'] not in teams_dict):
+            continue
+
+        home_team = teams_dict[game['team']['id']]
+        away_team = teams_dict[game['opponent']['id']]
+
+        if 'ratings' not in home_team or 'ratings' not in away_team:
+            continue
+
+        actual_points_home = game['result']['pointsFor']
+        actual_points_away = game['result']['pointsAgainst']
+
+        home_team_predicted_points = (home_team['ratings']['offense']
+                                      - away_team['ratings']['defense'])
+        away_team_predicted_points = (away_team['ratings']['offense']
+                                      - home_team['ratings']['defense'])
+        game['predicted'] = {}
+        game['predicted']['pointsFor'] = home_team_predicted_points
+        game['predicted']['pointsAgainst'] = away_team_predicted_points
+
+        home_points_error = abs(actual_points_home
+                                - home_team_predicted_points)
+
+        away_points_error = abs(actual_points_away
+                                - away_team_predicted_points)
+
+        errors.append(home_points_error)
+        errors.append(away_points_error)
+
+        error = (home_points_error**2
+                 + away_points_error**2)
+
+        total_squared_error += error
+        score_count += 2
+
+        game['error'] = math.sqrt(error / 2)
+
+    average_error = math.sqrt(total_squared_error / score_count)
+
+    games_sorted_by_error = sorted(unseen_games.values(),
+                                   key=lambda x: x.get('error', 0),
+                                   reverse=True)
+
+    return (average_error, errors, score_count/2, games_sorted_by_error)

@@ -9,9 +9,10 @@ def query_all_teams(year):
 
     for filename in os.listdir(dir):
         full_filename = os.path.join(dir, filename)
-        print('getting {}'.format(filename))
         with open(full_filename, 'r') as f:
             team = json.load(f)
+            if 'id' not in team:
+                print('{} has no id'.format(filename))
 
         teams.append(team)
 

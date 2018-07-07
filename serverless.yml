@@ -18,14 +18,14 @@ package:
   exclude:
   - config/env.sh
 custom:
-  teamsTableName: ${cf:sportnumerics-stats-${opt:stage}.TeamsTableName}
-  teamsTableArn:
+  teamsBucketName: ${cf:sportnumerics-stats-${opt:stage}.ResultsBucketName}
+  teamsBucketArn:
     Fn::Join:
     - ":"
-    - - "arn:aws:dynamodb"
+    - - "arn:aws:s3"
       - Ref: AWS::Region
       - Ref: AWS::AccountId
-      - table/${self:custom.teamsTableName}
+      - bucket/${self:custom.teamsBucketName}
 
 resources: ${file(resources.yml)}
 

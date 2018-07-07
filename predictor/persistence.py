@@ -12,7 +12,7 @@ def team_summary(team):
     }
 
 
-def create_team_lists_by_div(year, teams_dict):
+def create_team_lists_by_div(teams_dict):
     team_lists_by_div = {}
 
     for team_id, team in teams_dict.items():
@@ -30,21 +30,21 @@ def create_team_lists_by_div(year, teams_dict):
     return team_lists_by_div
 
 
-def persist_teams(year, teams_dict):
+def persist_teams(run_name, year, teams_dict):
     for team_id, team in teams_dict.items():
-        key = 'team/{}/{}.json'.format(year, team_id)
+        key = '{}/team/{}/{}.json'.format(run_name, year, team_id)
         persistence.write(key, team)
 
 
-def persist_team_lists(year, team_lists_by_div):
+def persist_team_lists(run_name, year, team_lists_by_div):
     for div_id, div in team_lists_by_div.items():
-        key = 'div/{}.json'.format(div_id)
+        key = '{}/div/{}.json'.format(run_name, div_id)
         persistence.write(key, div)
 
 
-def persist(year, teams_dict):
-    team_lists_by_div = create_team_lists_by_div(year, teams_dict)
+def persist(run_name, year, teams_dict):
+    team_lists_by_div = create_team_lists_by_div(teams_dict)
 
-    persist_teams(year, teams_dict)
+    persist_teams(run_name, year, teams_dict)
 
-    persist_team_lists(year, team_lists_by_div)
+    persist_team_lists(run_name, year, team_lists_by_div)

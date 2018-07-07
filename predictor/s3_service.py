@@ -3,10 +3,10 @@ import boto3
 import json
 
 s3 = boto3.client('s3')
-results_bucket = os.environ['TEAMS_BUCKET_NAME']
 
 
 def query_all_teams(year):
+    results_bucket = os.environ['TEAMS_BUCKET_NAME']
     keys = query_all_teams_keys(year)
 
     def query_team(key_contents):
@@ -27,6 +27,7 @@ def query_all_teams(year):
 
 
 def query_all_teams_keys(year):
+    results_bucket = os.environ['TEAMS_BUCKET_NAME']
     season = str(year)
     continuation_token = None
     keys = []

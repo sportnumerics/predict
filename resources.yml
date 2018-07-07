@@ -10,8 +10,8 @@ Resources:
     Properties:
       ContainerDefinitions:
       - Name: predict
-        Image: 
-          Fn::Join: 
+        Image:
+          Fn::Join:
             - ""
             - - Ref: AWS::AccountId
               - ".dkr.ecr."
@@ -27,8 +27,11 @@ Resources:
             awslogs-stream-prefix:
               Fn::Sub: "stats-${opt:stage}"
         Environment:
-        - Name: TEAMS_TABLE_NAME
-          Value: ${file(serverless.yml):custom.teamsTableName}
+        - Name: TEAMS_BUCKET_NAME
+          Value: ${file(serverless.yml):custom.teamsBucketName}
+        - Name: RESULTS_BUCKET_NAME
+          Value:
+            Ref: ResultsBucket
         - Name: STAGE
           Value: ${opt:stage}
         - Name: AWS_DEFAULT_REGION
@@ -85,13 +88,25 @@ Resources:
           PolicyDocument:
             Statement:
               - Effect: "Allow"
-                Action: "dynamodb:Query"
+                Action: "s3:listObjects"
                 Resource:
-                  - ${file(serverless.yml):custom.teamsTableArn}
+                  - ${file(serverless.yml):custom.teamsBucketArn}
+              - Effect: "Allow"
+                Action: "s3:getObject"
+                Resource:
+                  - Fn::Join:
+                    - '/'
+                    - - ${file(serverless.yml):custom.teamsBucketArn}
+                      - '*'
         - PolicyName: WriteResults
           PolicyDocument:
             Statement:
               - Effect: "Allow"
-                Action: "dynamodb:UpdateItem"
+                Action: "s3:putObject"
                 Resource:
-                  - ${file(serverless.yml):custom.teamsTableArn}
+                  - Fn::Join:
+                    - '/'
+                    - - Fn::GetAtt: [ResultsBucket, Arn]
+                      - '*'
+  ResultsBucket:
+    Type: AWS::S3::Bucket

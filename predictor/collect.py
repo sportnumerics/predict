@@ -1,6 +1,7 @@
 import numpy as np
 import copy
 from scipy.sparse import coo_matrix
+from datetime import datetime
 
 
 def build_team_map(games):
@@ -102,12 +103,14 @@ def build_offensive_defensive_constants(games, team_map):
 
 
 def id_for_game(game):
-    if game['location']['type'] == 'home':
+    # if game['location']['type'] == 'home':
+    if game['team']['id'] < game['opponent']['id']:
         home_id = game['team']['id']
         away_id = game['opponent']['id']
     else:
         home_id = game['opponent']['id']
         away_id = game['team']['id']
+
     return '{}_{}_{}'.format(away_id, home_id, game['date'])
 
 
@@ -130,7 +133,11 @@ def parse_results(result):
     }
 
 
-def get_all_games(teams):
+def parse_date(date_string):
+    return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S.%fZ")
+
+
+def get_all_games(teams, from_date=None):
     games = {}
 
     for team in teams:
@@ -143,8 +150,12 @@ def get_all_games(teams):
                 'id': team['id'],
                 'name': team['name']
             }
+            game_date = parse_date(game['date'])
             if 'result' in game:
-                game['result'] = parse_results(game['result'])
+                if not from_date or game_date < from_date:
+                    game['result'] = parse_results(game['result'])
+                else:
+                    del game['result']
             return game
 
         for team_game in team['schedule']:
