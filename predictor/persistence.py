@@ -1,7 +1,7 @@
 import os
 from . import s3_persist, local_persist
 
-persistence = local_persist if os.environ['LOCAL'] else s3_persist
+persistence = local_persist if 'LOCAL' in os.environ else s3_persist
 
 
 def team_summary(team):
@@ -30,21 +30,26 @@ def create_team_lists_by_div(teams_dict):
     return team_lists_by_div
 
 
-def persist_teams(run_name, year, teams_dict):
+def persist_teams(run_name, year, teams_dict, include_run_name=False):
     for team_id, team in teams_dict.items():
-        key = '{}/team/{}/{}.json'.format(run_name, year, team_id)
+        prefix = run_name if include_run_name else year
+        key = '{}/teams/{}.json'.format(prefix, team_id)
         persistence.write(key, team)
 
 
-def persist_team_lists(run_name, year, team_lists_by_div):
+def persist_team_lists(run_name,
+                       year,
+                       team_lists_by_div,
+                       include_run_name=False):
     for div_id, div in team_lists_by_div.items():
-        key = '{}/div/{}.json'.format(run_name, div_id)
+        prefix = run_name if include_run_name else year
+        key = '{}/div/{}.json'.format(prefix, div_id)
         persistence.write(key, div)
 
 
-def persist(run_name, year, teams_dict):
+def persist(run_name, year, teams_dict, include_run_name):
     team_lists_by_div = create_team_lists_by_div(teams_dict)
 
-    persist_teams(run_name, year, teams_dict)
+    persist_teams(run_name, year, teams_dict, include_run_name)
 
-    persist_team_lists(run_name, year, team_lists_by_div)
+    persist_team_lists(run_name, year, team_lists_by_div, include_run_name)

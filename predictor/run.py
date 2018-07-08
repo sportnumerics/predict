@@ -5,10 +5,12 @@ from . import collect,\
     service
 import os
 from datetime import datetime, timedelta
-import matplotlib
-matplotlib.use('svg')
-import matplotlib.pyplot as plt  # noqa: E402
-import json  # noqa: E402
+
+if 'LOCAL' in os.environ:
+    import matplotlib
+    matplotlib.use('svg')
+    import matplotlib.pyplot as plt  # noqa: E402
+    import json  # noqa: E402
 
 
 prediction_year = os.environ.get('PREDICTION_YEAR',
@@ -77,7 +79,8 @@ def run_teams(run_name, year, teams, from_date):
         teams_dict,
         od_ratings)
 
-    persistence.persist(run_name, year, teams_with_ratings)
+    include_run_name = 'LOCAL' in os.environ
+    persistence.persist(run_name, year, teams_with_ratings, include_run_name)
 
     if exploratory_mode:
         (average_error_per_game,
