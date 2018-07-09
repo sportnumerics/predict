@@ -22,7 +22,8 @@ exploratory_mode = os.environ.get('EXPLORATORY_MODE',
 def daterange(start, end, delta_days):
     days_in_range = int(((end-start).days))
     for n in range(0, days_in_range, delta_days):
-        yield start + timedelta(n)
+        date = start + timedelta(n)
+        yield (str(date.date()), date)
 
 
 def dates():
@@ -31,7 +32,7 @@ def dates():
         end_date = datetime(int(prediction_year), 4, 15)
         yield from daterange(start_date, end_date, 14)
     else:
-        yield datetime.now()
+        yield (prediction_year, datetime.now())
 
 
 def run(year=prediction_year):
@@ -39,8 +40,8 @@ def run(year=prediction_year):
 
     teams = service.query_all_teams(year)
 
-    for date in dates():
-        run_teams(str(date.date()), year, teams, date)
+    for run_name, date in dates():
+        run_teams(run_name, year, teams, date)
 
     if exploratory_mode:
         filename = os.path.join('output', 'hist.svg')
