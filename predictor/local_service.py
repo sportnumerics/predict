@@ -20,8 +20,8 @@ def query_all_teams(year):
 
 
 def copy_divisions(run_name, year):
-    src_filename = os.path.join('bucket', year, 'divisions')
-    dst_filename = os.path.join('output', run_name, 'divisions')
+    src_filename = os.path.join('bucket', year, 'divisions.json')
+    dst_filename = os.path.join('output', run_name, 'divisions.json')
 
     if not os.path.exists(os.path.dirname(dst_filename)):
         os.makedirs(os.path.dirname(dst_filename))
