@@ -33,7 +33,7 @@ def query_all_teams_keys(year):
     keys = []
     query_args = {
         'Bucket': results_bucket,
-        'Prefix': '{}/'.format(season)
+        'Prefix': '{}/teams/'.format(season)
     }
     while True:
         if continuation_token:
@@ -47,3 +47,13 @@ def query_all_teams_keys(year):
             break
 
     return keys
+
+
+def copy_divisions(run_name, year):
+    key = '{}/divisions'.format(year)
+    source = {
+        'Bucket': 'TEAMS_BUCKET_NAME',
+        'Key': key
+    }
+    dest = s3.Bucket(os.environ['RESULTS_BUCKET_NAME'])
+    dest.copy(source, key)

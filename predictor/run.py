@@ -82,6 +82,8 @@ def run_teams(run_name, year, teams, from_date):
     include_run_name = 'LOCAL' in os.environ
     persistence.persist(run_name, year, teams_with_ratings, include_run_name)
 
+    service.copy_divisions(run_name, year)
+
     if exploratory_mode:
         (average_error_per_game,
          errors,
