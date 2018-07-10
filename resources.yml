@@ -88,11 +88,11 @@ Resources:
           PolicyDocument:
             Statement:
               - Effect: "Allow"
-                Action: "s3:listObjects"
+                Action: "s3:ListBucket"
                 Resource:
                   - ${file(serverless.yml):custom.teamsBucketArn}
               - Effect: "Allow"
-                Action: "s3:getObject"
+                Action: "s3:GetObject"
                 Resource:
                   - Fn::Join:
                     - '/'
