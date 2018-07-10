@@ -110,3 +110,8 @@ Resources:
                       - '*'
   ResultsBucket:
     Type: AWS::S3::Bucket
+Outputs:
+  ResultsBucketName:
+    Description: Results bucket
+    Value:
+      Ref: ResultsBucket
