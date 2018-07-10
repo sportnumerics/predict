@@ -52,7 +52,7 @@ def query_all_teams_keys(year):
 def copy_divisions(run_name, year):
     key = '{}/divisions.json'.format(year)
     source = {
-        'Bucket': 'TEAMS_BUCKET_NAME',
+        'Bucket': os.environ['TEAMS_BUCKET_NAME'],
         'Key': key
     }
     dest = s3.Bucket(os.environ['RESULTS_BUCKET_NAME'])
