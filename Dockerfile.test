@@ -8,6 +8,8 @@ RUN pip install --upgrade pip
 
 RUN pip install --upgrade awscli
 
+RUN pip install --upgrade pipenv
+
 RUN npm install serverless
 
 ADD . .
