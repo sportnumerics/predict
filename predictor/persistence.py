@@ -8,7 +8,8 @@ def team_summary(team):
     return {
         'id': team['id'],
         'name': team['name'],
-        'ratings': team['ratings']
+        'ratings': team['ratings'],
+        'record': team['record']
     }
 
 

@@ -136,6 +136,29 @@ def parse_results(result):
 def parse_date(date_string):
     return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S.%fZ")
 
+def record_from_schedule(schedule):
+    wins = 0
+    losses = 0
+    ties = 0
+
+    for game in schedule:
+        if 'result' not in game:
+            continue
+
+        result = game['result']
+
+        if result['pointsFor'] > result['pointsAgainst']:
+            wins += 1
+        elif result['pointsAgainst'] > result['pointsFor']:
+            losses += 1
+        else:
+            ties += 1
+
+    return {
+        'wins': wins,
+        'losses': losses,
+        'ties': ties
+    }
 
 def get_all_games(teams, from_date=None):
     games = {}
@@ -162,5 +185,7 @@ def get_all_games(teams, from_date=None):
             game = team_game_to_game(team_game)
             if 'result' in game:
                 games[id_for_game(game)] = game
+
+        team['record'] = record_from_schedule(team['schedule'])
 
     return games
