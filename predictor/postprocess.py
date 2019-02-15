@@ -144,6 +144,7 @@ def error_per_unseen_game(teams_dict, seen_games):
     total_squared_error = 0
     score_count = 0
     errors = []
+    correct_count = 0
 
     print('evaluating error for {} teams'.format(len(teams_dict)))
 
@@ -153,7 +154,7 @@ def error_per_unseen_game(teams_dict, seen_games):
 
     for game_id, game in unseen_games.items():
         if (game['team']['id'] not in teams_dict or
-                game['opponent']['id'] not in teams_dict):
+                game['opponent']['id'] not in teams_dict) or game_result_is_a_tie(game['result']):
             continue
 
         home_team = teams_dict[game['team']['id']]
@@ -190,10 +191,18 @@ def error_per_unseen_game(teams_dict, seen_games):
 
         game['error'] = math.sqrt(error / 2)
 
+        if ((actual_points_home - actual_points_away) * (home_team_predicted_points - away_team_predicted_points) > 0):
+            correct_count += 1
+
     average_error = math.sqrt(total_squared_error / score_count)
 
     games_sorted_by_error = sorted(unseen_games.values(),
                                    key=lambda x: x.get('error', 0),
                                    reverse=True)
 
-    return (average_error, errors, score_count/2, games_sorted_by_error)
+    return (average_error, errors, score_count/2, games_sorted_by_error, correct_count)
+
+def game_result_is_a_tie(result):
+    return ((result['pointsFor'] == 1 and result['pointsAgainst'] == 0) or
+        (result['pointsFor'] == 0 and result['pointsAgainst'] == 1) or
+        (result['pointsFor'] == 0 and result['pointsAgainst'] == 0))

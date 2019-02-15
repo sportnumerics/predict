@@ -11,6 +11,8 @@ if 'LOCAL' in os.environ:
     matplotlib.use('svg')
     import matplotlib.pyplot as plt  # noqa: E402
     import json  # noqa: E402
+    from scipy.stats import norm
+    import numpy as np
 
 
 prediction_year = os.environ.get('PREDICTION_YEAR',
@@ -44,7 +46,7 @@ def run(year=prediction_year):
         run_teams(run_name, year, teams, date)
 
     if exploratory_mode:
-        filename = os.path.join('output', 'hist.svg')
+        filename = os.path.join('output', 'hist_{}.svg'.format(prediction_year))
         plt.savefig(filename)
 
 
@@ -89,7 +91,8 @@ def run_teams(run_name, year, teams, from_date):
         (average_error_per_game,
          errors,
          unseen_game_count,
-         games_sorted_by_error) = postprocess.error_per_unseen_game(
+         games_sorted_by_error,
+         correct_count) = postprocess.error_per_unseen_game(
             teams_with_ratings,
             games)
 
@@ -101,7 +104,10 @@ def run_teams(run_name, year, teams, from_date):
                     from_date,
                     average_error_per_game))
 
-        plt.hist(errors, bins='auto')
+        print('Games called correctly {} / {} ({}%)'.format(
+            correct_count, unseen_game_count, 100 * (correct_count / unseen_game_count)))
+
+        plt.hist(errors, bins=np.arange(30), density=True)
 
 
 def persist_games_sorted_by_error(run_name, games_sorted_by_error):
