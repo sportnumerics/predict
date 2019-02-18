@@ -1,7 +1,9 @@
 FROM python:3
 WORKDIR /code
 RUN pip install --upgrade pipenv
-RUN pipenv install
+ADD Pipfile .
+ADD Pipfile.lock .
+RUN pipenv install --system --deploy --ignore-pipfile
 ADD predictor predictor
 ADD go.py .
-CMD pipenv run python go.py
+CMD python go.py
