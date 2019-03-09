@@ -92,7 +92,7 @@ def build_offensive_defensive_coefficient_matrix(games, team_map):
                 offensive_offset(game['opponent']['id']),
                 defensive_offset(game['team']['id']))]
 
-    return coo_matrix((data, (i, j)))
+    return coo_matrix((data, (i, j)), shape=(2*len(games), 2*len(team_map['indicies_to_teams'])))
 
 
 def build_offensive_defensive_constants(games, team_map):
@@ -180,8 +180,7 @@ def get_all_games(teams, from_date=None):
 
         for team_game in team['schedule']:
             game = team_game_to_game(team_game)
-            if 'result' in game:
-                games[id_for_game(game)] = game
+            games[id_for_game(game)] = game
 
         team['record'] = record_from_schedule(team['schedule'])
 

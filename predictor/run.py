@@ -64,12 +64,14 @@ def run_teams(run_name, year, teams, from_date):
     # offensive defensive model
     l_model = lls_model.Model()
 
+    games_with_results = list(filter(lambda g: 'result' in g, games_list))
+
     coefficients = collect.build_offensive_defensive_coefficient_matrix(
-        games_list,
+        games_with_results,
         team_map)
 
     constants = collect.build_offensive_defensive_constants(
-        games_list,
+        games_with_results,
         team_map)
 
     l_model.train(coefficients, constants)
