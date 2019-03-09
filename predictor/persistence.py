@@ -12,23 +12,32 @@ def team_summary(team):
         'record': team['record']
     }
 
-
-def create_team_lists_by_div(teams_dict):
+def team_summaries_by_div(teams_by_div):
     team_lists_by_div = {}
+
+    for div_id, teams in teams_by_div.items():
+        team_lists_by_div[div_id] = {
+            'id': div_id,
+            'teams': list(map(team_summary, teams))
+        }
+
+    return team_lists_by_div
+
+
+def split_teams_into_divs(teams_dict):
+    teams_by_div = {}
 
     for team_id, team in teams_dict.items():
         if 'ratings' not in team:
             continue
-        div = team['div']
-        if div not in team_lists_by_div:
-            team_lists_by_div[div] = {
-                'id': div,
-                'teams': []
-            }
+        div_teams = teams_by_div.setdefault(team['div'], [])
+        div_teams.append(team)
 
-        team_lists_by_div[div]['teams'].append(team_summary(team))
+    for div_id, div_teams in teams_by_div.items():
+        for i, team in enumerate(sorted(div_teams, key=lambda x: -x['ratings']['overall'])):
+            team['rank'] = i + 1
 
-    return team_lists_by_div
+    return teams_by_div
 
 
 def persist_teams(run_name, year, teams_dict, include_run_name=False):
@@ -49,8 +58,10 @@ def persist_team_lists(run_name,
 
 
 def persist(run_name, year, teams_dict, include_run_name):
-    team_lists_by_div = create_team_lists_by_div(teams_dict)
+    teams_by_div = split_teams_into_divs(teams_dict)
+
+    team_summaries = team_summaries_by_div(teams_by_div)
 
     persist_teams(run_name, year, teams_dict, include_run_name)
 
-    persist_team_lists(run_name, year, team_lists_by_div, include_run_name)
+    persist_team_lists(run_name, year, team_summaries, include_run_name)
