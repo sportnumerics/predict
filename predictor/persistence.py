@@ -1,5 +1,5 @@
 import os
-from . import s3_persist, local_persist
+from . import s3_persist, local_persist, util
 
 persistence = local_persist if 'LOCAL' in os.environ else s3_persist
 
@@ -65,3 +65,46 @@ def persist(run_name, year, teams_dict, include_run_name):
     persist_teams(run_name, year, teams_dict, include_run_name)
 
     persist_team_lists(run_name, year, team_summaries, include_run_name)
+
+
+def enrich_game_team_with_team(game_team, teams_dict):
+    team_id = game_team['id']
+    if team_id in teams_dict:
+        game_team['rank'] = teams_dict[team_id]['rank']
+        game_team['ratings'] = teams_dict[team_id]['ratings']
+        game_team['div'] = teams_dict[team_id]['div']
+
+def add_team_info_to_games(games_list, teams_dict):
+    for game in games_list:
+        enrich_game_team_with_team(game['team'], teams_dict)
+        enrich_game_team_with_team(game['opponent'], teams_dict)
+
+def game_divs(game):
+    divs = set()
+    if 'div' in game['team']:
+        divs.add(game['team']['div'])
+    if 'div' in game['opponent']:
+        divs.add(game['opponent']['div'])
+    if len(divs) == 2:
+        divs.add('cross_divisional')
+    return divs
+
+def split_games_by_div_and_day(games_list):
+    result = {}
+    for game in games_list:
+        game_date = util.parse_date(game['date'])
+        divs = game_divs(game)
+        for div in divs:
+            div = result.setdefault(div, {})
+            day = div.setdefault(game_date.date().isoformat(), [])
+            day.append(game)
+    return result
+
+def persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_name=False):
+    add_team_info_to_games(games_list, teams_dict)
+    games_by_div_and_day = split_games_by_div_and_day(games_list)
+    prefix = run_name if include_run_name else year
+    for div, games_by_day in games_by_div_and_day.items():
+        for day, games in games_by_day.items():
+            key = '{}/divs/{}/games/{}.json'.format(prefix, div, day)
+            persistence.write(key, games)

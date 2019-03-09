@@ -85,6 +85,8 @@ def run_teams(run_name, year, teams, from_date):
     include_run_name = 'LOCAL' in os.environ
     persistence.persist(run_name, year, teams_with_ratings, include_run_name)
 
+    persistence.persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_name)
+
     service.copy_divisions(run_name, year)
 
     if exploratory_mode:

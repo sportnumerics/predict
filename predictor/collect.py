@@ -1,7 +1,7 @@
 import numpy as np
 import copy
+from . import util
 from scipy.sparse import coo_matrix
-from datetime import datetime
 
 
 def build_team_map(games):
@@ -133,9 +133,6 @@ def parse_results(result):
     }
 
 
-def parse_date(date_string):
-    return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S.%fZ")
-
 def record_from_schedule(schedule):
     wins = 0
     losses = 0
@@ -173,7 +170,7 @@ def get_all_games(teams, from_date=None):
                 'id': team['id'],
                 'name': team['name']
             }
-            game_date = parse_date(game['date'])
+            game_date = util.parse_date(game['date'])
             if 'result' in game:
                 if not from_date or game_date < from_date:
                     game['result'] = parse_results(game['result'])
