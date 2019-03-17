@@ -105,6 +105,8 @@ def persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_n
     games_by_div_and_day = split_games_by_div_and_day(games_list)
     prefix = run_name if include_run_name else year
     for div, games_by_day in games_by_div_and_day.items():
+        index = {d: len(g) for (d, g) in games_by_day.items()}
+        persistence.write('{}/divs/{}/games/index.json'.format(prefix, div), index)
         for day, games in games_by_day.items():
             key = '{}/divs/{}/games/{}.json'.format(prefix, div, day)
             persistence.write(key, games)
