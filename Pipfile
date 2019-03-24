@@ -7,7 +7,7 @@ name = "pypi"
 "boto3" = "==1.7.52"
 numpy = "==1.14.5"
 requests = ">=2.20.0"
-scipy = "==1.1.0"
+scipy = "==1.2.1"
 
 [dev-packages]
 matplotlib = "*"

@@ -70,14 +70,19 @@ def persist(run_name, year, teams_dict, include_run_name):
 def enrich_game_team_with_team(game_team, teams_dict):
     team_id = game_team['id']
     if team_id in teams_dict:
-        game_team['rank'] = teams_dict[team_id]['rank']
-        game_team['ratings'] = teams_dict[team_id]['ratings']
-        game_team['div'] = teams_dict[team_id]['div']
+        team = teams_dict[team_id]
+        if 'rank' in team:
+            game_team['rank'] = team['rank']
+        if 'ratings' in team:
+            game_team['ratings'] = team['ratings']
+        game_team['div'] = team['div']
+
 
 def add_team_info_to_games(games_list, teams_dict):
     for game in games_list:
         enrich_game_team_with_team(game['team'], teams_dict)
         enrich_game_team_with_team(game['opponent'], teams_dict)
+
 
 def game_divs(game):
     divs = set()

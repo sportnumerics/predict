@@ -15,6 +15,8 @@ def build_team_map(games):
             indicies_to_teams[index] = team
 
     for game in games:
+        if 'result' not in game:
+            continue
         team = game['team']
         opponent = game['opponent']
         add_team_if_necessary(team)
@@ -185,3 +187,41 @@ def get_all_games(teams, from_date=None):
         team['record'] = record_from_schedule(team['schedule'])
 
     return games
+
+
+def group_teams_by_games(game_list):
+    groups = []
+
+    for game in game_list:
+        team_id = game['team']['id']
+        opponent_id = game['opponent']['id']
+        team_group = group_for_team(groups, team_id)
+        opponent_group = group_for_team(groups, opponent_id)
+        if (team_group is None and opponent_group is None):
+            groups.append({
+                'id': len(groups),
+                'games': [game],
+                'teamIds': set([team_id, opponent_id])
+            })
+        elif (team_group is None):
+            opponent_group['games'].append(game)
+            opponent_group['teamIds'].add(team_id)
+        elif (opponent_group is None):
+            team_group['games'].append(game)
+            team_group['teamIds'].add(opponent_id)
+        elif (team_group == opponent_group):
+            team_group['games'].append(game)
+        else:
+            groups.remove(opponent_group)
+            team_group['games'].append(game)
+            team_group['games'].extend(opponent_group['games'])
+            team_group['teamIds'].update(opponent_group['teamIds'])
+
+    return groups
+
+
+def group_for_team(groups, team_id):
+    for group in groups:
+        if team_id in group['teamIds']:
+            return group
+    return None
