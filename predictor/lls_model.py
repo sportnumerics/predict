@@ -6,7 +6,7 @@ class Model:
         self.ratings = None
 
     def train(self, coefficients, constants):
-        x, istop, itn, r1norm, r2norm, anorm, acond, arnorm, xnorm, var = linalg.lsqr(coefficients, constants)
+        x, istop, itn, r1norm, r2norm, anorm, acond, arnorm, xnorm, var = linalg.lsqr(coefficients, constants, damp=0.2)
 
         self.ratings = x
 

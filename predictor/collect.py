@@ -78,6 +78,10 @@ def build_overall_constants(games, team_map):
 def build_offensive_defensive_coefficient_matrix(games, team_map):
     ids_to_indicies = team_map['ids_to_indicies']
 
+    hfa_factors = [hfa for g in games for hfa in ((1, -1) if g['location']['type'] == 'home' else (-1, 1))]
+    hfa_i = [i for i in range(0, 2*len(games))]
+    hfa_j = [2*len(ids_to_indicies)]*(2*len(games))
+
     data = [1, -1, 1, -1]*len(games)
     i = [i for g in range(0, 2*len(games)) for i in (g, g)]
 
@@ -94,7 +98,7 @@ def build_offensive_defensive_coefficient_matrix(games, team_map):
                 offensive_offset(game['opponent']['id']),
                 defensive_offset(game['team']['id']))]
 
-    return coo_matrix((data, (i, j)), shape=(2*len(games), 2*len(team_map['indicies_to_teams'])))
+    return coo_matrix((data + hfa_factors, (i + hfa_i, j + hfa_j)), shape=(2*len(games), 2*len(ids_to_indicies)+1))
 
 
 def build_offensive_defensive_constants(games, team_map):
@@ -193,6 +197,8 @@ def group_teams_by_games(game_list):
     groups = []
 
     for game in game_list:
+        if 'result' not in game:
+            continue
         team_id = game['team']['id']
         opponent_id = game['opponent']['id']
         team_group = group_for_team(groups, team_id)

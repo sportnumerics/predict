@@ -39,12 +39,15 @@ def calculate_lss_offensive_defensive_ratings(team_map, model):
     overall = ratings[0:n_teams] + ratings[offset:n_teams+offset]
     overall = overall - np.amax(overall)
 
+    hfa = ratings[2*n_teams]
+
     for i in range(0, n_teams):
         team = team_map['indicies_to_teams'][i]
         results[team['id']] = {
             'offense': ratings[i],
             'defense': ratings[i+offset],
-            'overall': overall[i]
+            'overall': overall[i],
+            'hfa': hfa
         }
 
     return results
@@ -127,8 +130,9 @@ def merge_results_with_teams_dict(teams_dict, od_results, group_id):
     return teams_dict
 
 
-def unseen_games_from_seen_games(all_games, seen_games):
-    unseen_games = all_games.copy()
+def unseen_games_from_seen_games(all_games, training_games):
+    unseen_games = {k:v for (k,v) in all_games.items() if 'result' in v}
+    seen_games = {k:v for (k,v) in training_games.items() if 'result' in v}
 
     print('culling {} seen games from {} total games'.format(
         len(seen_games),
@@ -164,13 +168,18 @@ def error_per_unseen_game(teams_dict, seen_games):
         if 'ratings' not in home_team or 'ratings' not in away_team:
             continue
 
+        if home_team['ratings']['groupId'] != away_team['ratings']['groupId']:
+            continue
+
         actual_points_home = game['result']['pointsFor']
         actual_points_away = game['result']['pointsAgainst']
 
         home_team_predicted_points = (home_team['ratings']['offense']
-                                      - away_team['ratings']['defense'])
+                                      - away_team['ratings']['defense']
+                                      + home_team['ratings']['hfa'])
         away_team_predicted_points = (away_team['ratings']['offense']
-                                      - home_team['ratings']['defense'])
+                                      - home_team['ratings']['defense']
+                                      - away_team['ratings']['hfa'])
         game['predicted'] = {}
         game['predicted']['pointsFor'] = home_team_predicted_points
         game['predicted']['pointsAgainst'] = away_team_predicted_points

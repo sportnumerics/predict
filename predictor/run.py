@@ -55,7 +55,7 @@ def run_teams(run_name, year, teams, from_date):
 
     games = collect.get_all_games(teams, from_date)
 
-    print('running model on {} games'.format(len(games)))
+    print('running model on {} games (as of {})'.format(len(games), from_date))
 
     games_list = list(games.values())
 
@@ -101,7 +101,7 @@ def run_teams(run_name, year, teams, from_date):
          unseen_game_count,
          games_sorted_by_error,
          correct_count) = postprocess.error_per_unseen_game(
-            teams_with_ratings,
+            teams_dict,
             games)
 
         persist_games_sorted_by_error(run_name, games_sorted_by_error)
