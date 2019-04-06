@@ -204,7 +204,10 @@ def error_per_unseen_game(teams_dict, seen_games):
         if ((actual_points_home - actual_points_away) * (home_team_predicted_points - away_team_predicted_points) > 0):
             correct_count += 1
 
-    average_error = math.sqrt(total_squared_error / score_count)
+    if (score_count > 0):
+        average_error = math.sqrt(total_squared_error / score_count)
+    else:
+        average_error = 0
 
     games_sorted_by_error = sorted(unseen_games.values(),
                                    key=lambda x: x.get('error', 0),

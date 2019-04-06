@@ -75,14 +75,20 @@ def build_overall_constants(games, team_map):
         for g in games])
 
 
+def weight(game):
+    diff = abs(game['result']['pointsFor'] - game['result']['pointsAgainst'])
+    alpha = 0.5
+    return (1 + alpha) / (diff + alpha)
+
+
 def build_offensive_defensive_coefficient_matrix(games, team_map):
     ids_to_indicies = team_map['ids_to_indicies']
 
-    hfa_factors = [hfa for g in games for hfa in ((1, -1) if g['location']['type'] == 'home' else (-1, 1))]
+    hfa_factors = [hfa for g in games for hfa in ((weight(g), -1.0 * weight(g)) if g['location']['type'] == 'home' else (-1.0 * weight(g), weight(g)))]
     hfa_i = [i for i in range(0, 2*len(games))]
     hfa_j = [2*len(ids_to_indicies)]*(2*len(games))
 
-    data = [1, -1, 1, -1]*len(games)
+    data = [i for g in games for i in (weight(g), -1.0 * weight(g), weight(g), -1.0 * weight(g))]
     i = [i for g in range(0, 2*len(games)) for i in (g, g)]
 
     def offensive_offset(id):
@@ -104,7 +110,7 @@ def build_offensive_defensive_coefficient_matrix(games, team_map):
 def build_offensive_defensive_constants(games, team_map):
     return np.array([
         p for g in games
-        for p in (g['result']['pointsFor'], g['result']['pointsAgainst'])
+        for p in (weight(g) * g['result']['pointsFor'], weight(g) * g['result']['pointsAgainst'])
     ])
 
 

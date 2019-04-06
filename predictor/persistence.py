@@ -53,6 +53,7 @@ def persist_team_lists(run_name,
                        include_run_name=False):
     for div_id, div in team_lists_by_div.items():
         prefix = run_name if include_run_name else year
+        div['teams'] = sorted(div['teams'], key=lambda t: -t['ratings']['overall'])
         key = '{}/divs/{}.json'.format(prefix, div_id)
         persistence.write(key, div)
 
