@@ -1,16 +1,19 @@
 import os
+import math
 from . import s3_persist, local_persist, util
 
 persistence = local_persist if 'LOCAL' in os.environ else s3_persist
 
 
 def team_summary(team):
-    return {
+    summary = {
         'id': team['id'],
         'name': team['name'],
-        'ratings': team['ratings'],
         'record': team['record']
     }
+    if 'ratings' in team:
+        summary['ratings'] = team['ratings']
+    return summary
 
 def team_summaries_by_div(teams_by_div):
     team_lists_by_div = {}
@@ -28,13 +31,11 @@ def split_teams_into_divs(teams_dict):
     teams_by_div = {}
 
     for team_id, team in teams_dict.items():
-        if 'ratings' not in team:
-            continue
         div_teams = teams_by_div.setdefault(team['div'], [])
         div_teams.append(team)
 
     for div_id, div_teams in teams_by_div.items():
-        for i, team in enumerate(sorted(div_teams, key=lambda x: -x['ratings']['overall'])):
+        for i, team in enumerate(sorted(div_teams, key=rank_value)):
             team['rank'] = i + 1
 
     return teams_by_div
@@ -115,3 +116,9 @@ def persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_n
         for day, games in games_by_day.items():
             key = '{}/divs/{}/games/{}.json'.format(prefix, div, day)
             persistence.write(key, games)
+
+def rank_value(team):
+    if 'rating'  in team and 'overall' in team['rating']:
+        return -team['rating']['overall']
+    else:
+        return math.inf
