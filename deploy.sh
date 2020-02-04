@@ -24,7 +24,7 @@ SLS_DEBUG=* sls deploy --stage=$STAGE --verbose
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
 
 docker --version
-eval $(aws ecr get-login --region $AWS_DEFAULT_REGION)
+eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
 docker build -t $IMAGE_NAME .
 
 docker tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:latest
