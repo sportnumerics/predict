@@ -2,6 +2,9 @@
 
 set -e
 
+AWS_DEFAULT_REGION=$(aws configure get region)
+AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+
 if [ "$LAMBCI_BRANCH" = "master" ]; then
   CDN_STACK_NAME="sportnumerics-explorer-cdn-prod"
   ACTIVE_DEPLOYMENT=$(aws cloudformation describe-stacks --stack-name $CDN_STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`ExplorerStageDeployment`].OutputValue' --output text)
