@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 AWS_DEFAULT_REGION=$(aws configure get region)
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
@@ -20,7 +20,7 @@ else
 fi
 
 
-SLS_DEBUG=* node_modules/.bin/sls deploy --stage=$STAGE --verbose
+SLS_DEBUG=* sls deploy --stage=$STAGE --verbose
 
 IMAGE_NAME="sportnumerics-predictor-$STAGE"
 

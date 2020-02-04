@@ -10,7 +10,7 @@ RUN pip3 install --upgrade awscli
 
 RUN pip3 install --upgrade pipenv
 
-RUN npm install serverless
+RUN npm install -g serverless
 
 ADD . .
 
