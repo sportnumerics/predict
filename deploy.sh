@@ -2,7 +2,6 @@
 
 set -ex
 
-AWS_DEFAULT_REGION=$(aws configure get region)
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
 if [ "$LAMBCI_BRANCH" = "master" ]; then
