@@ -118,7 +118,7 @@ def persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_n
             persistence.write(key, games)
 
 def rank_value(team):
-    if 'rating' in team and 'overall' in team['rating']:
-        return -team['rating']['overall']
+    if 'ratings' in team and 'overall' in team['ratings']:
+        return -team['ratings']['overall']
     else:
         return -math.inf
