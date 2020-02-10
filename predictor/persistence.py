@@ -121,4 +121,4 @@ def rank_value(team):
     if 'rating' in team and 'overall' in team['rating']:
         return -team['rating']['overall']
     else:
-        return math.inf
+        return -math.inf
