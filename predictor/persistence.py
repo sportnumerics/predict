@@ -35,7 +35,7 @@ def split_teams_into_divs(teams_dict):
         div_teams.append(team)
 
     for div_id, div_teams in teams_by_div.items():
-        for i, team in enumerate(sorted(div_teams, key=rank_value)):
+        for i, team in enumerate(sorted(filter(lambda x: 'ratings' in x, div_teams), key=rank_value)):
             team['rank'] = i + 1
 
     return teams_by_div
@@ -118,7 +118,7 @@ def persist_upcoming_games(run_name, year, games_list, teams_dict, include_run_n
             persistence.write(key, games)
 
 def rank_value(team):
-    if 'rating'  in team and 'overall' in team['rating']:
+    if 'rating' in team and 'overall' in team['rating']:
         return -team['rating']['overall']
     else:
         return math.inf
