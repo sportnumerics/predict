@@ -35,8 +35,17 @@ def split_teams_into_divs(teams_dict):
         div_teams.append(team)
 
     for div_id, div_teams in teams_by_div.items():
-        for i, team in enumerate(sorted(filter(lambda x: 'ratings' in x, div_teams), key=rank_value)):
-            team['rank'] = i + 1
+        last_rating = math.inf
+        rank = 0
+        count = 0
+        for team in sorted(filter(lambda x: 'ratings' in x, div_teams), key=rank_value):
+            if 'ratings' in team and 'overall' in team['ratings'] and team['ratings']['overall'] < last_rating:
+                rank = rank + 1
+                last_rating = team['ratings']['overall']
+                if count > 25:
+                    break
+            team['rank'] = rank
+            count = count + 1
 
     return teams_by_div
 
@@ -121,4 +130,4 @@ def rank_value(team):
     if 'ratings' in team and 'overall' in team['ratings']:
         return -team['ratings']['overall']
     else:
-        return -math.inf
+        return math.inf
