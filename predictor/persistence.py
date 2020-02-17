@@ -42,7 +42,7 @@ def split_teams_into_divs(teams_dict):
         count = 0
         for team in sorted(filter(lambda x: 'ratings' in x, div_teams), key=rank_value):
             if 'ratings' in team and 'overall' in team['ratings'] and team['ratings']['overall'] < last_rating:
-                rank = rank + 1
+                rank = count + 1
                 last_rating = team['ratings']['overall']
             team['rank'] = rank
             count = count + 1
