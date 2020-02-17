@@ -9,10 +9,12 @@ def team_summary(team):
     summary = {
         'id': team['id'],
         'name': team['name'],
-        'record': team['record']
+        'record': team['record'],
     }
     if 'ratings' in team:
         summary['ratings'] = team['ratings']
+    if 'rank' in team:
+        summary['rank'] = team['rank']
     return summary
 
 def team_summaries_by_div(teams_by_div):
