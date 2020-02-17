@@ -44,8 +44,6 @@ def split_teams_into_divs(teams_dict):
             if 'ratings' in team and 'overall' in team['ratings'] and team['ratings']['overall'] < last_rating:
                 rank = rank + 1
                 last_rating = team['ratings']['overall']
-                if count > 25:
-                    break
             team['rank'] = rank
             count = count + 1
 
