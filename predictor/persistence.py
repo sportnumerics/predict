@@ -32,18 +32,24 @@ def team_summaries_by_div(teams_by_div):
 def split_teams_into_divs(teams_dict):
     teams_by_div = {}
 
+    max_rating = -math.inf
+
     for team_id, team in teams_dict.items():
         div_teams = teams_by_div.setdefault(team['div'], [])
         div_teams.append(team)
+        if 'ratings' in team and 'overall' in team['ratings']:
+            max_rating = max(max_rating, team['ratings']['overall'])
 
     for div_id, div_teams in teams_by_div.items():
         last_rating = math.inf
         rank = 0
         count = 0
         for team in sorted(filter(lambda x: 'ratings' in x, div_teams), key=rank_value):
-            if 'ratings' in team and 'overall' in team['ratings'] and team['ratings']['overall'] < last_rating:
-                rank = count + 1
-                last_rating = team['ratings']['overall']
+            if 'ratings' in team and 'overall' in team['ratings']:
+                team['ratings']['overall'] = team['ratings']['overall'] - max_rating
+                if team['ratings']['overall'] < last_rating:
+                    rank = count + 1
+                    last_rating = team['ratings']['overall']
             team['rank'] = rank
             count = count + 1
 

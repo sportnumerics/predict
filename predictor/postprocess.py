@@ -4,7 +4,6 @@ from datetime import datetime
 from . import utc
 from . import collect
 
-
 def collect_ratings(team_map, rating_function):
     n_teams = len(team_map['indicies_to_teams'])
 
@@ -37,7 +36,6 @@ def calculate_lss_offensive_defensive_ratings(team_map, model):
     ratings = model.corrected_ratings()
 
     overall = ratings[0:n_teams] + ratings[offset:n_teams+offset]
-    overall = overall - np.amax(overall)
 
     hfa = ratings[2*n_teams]
 

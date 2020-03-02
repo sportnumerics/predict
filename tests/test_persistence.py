@@ -23,6 +23,25 @@ class TestPersistence(unittest.TestCase):
     self.assertEqual(m1['team-2']['rank'], 3)
     self.assertEqual(m1['team-3']['rank'], 4)
 
+  def test_normalize(self):
+    teams = [
+      team('team-1', 'm1', 1.0),
+      team('team-2', 'm1', 0.0),
+      team('team-3', 'm1', -1.0),
+      team('team-4', 'm2', 2.0),
+      team('team-5', 'm2', -1.0)
+    ]
+
+    teams_dict = {team['id']: team for team in teams}
+
+    teams_by_div = split_teams_into_divs(teams_dict)
+
+    m1 = {team['id']: team for team in teams_by_div['m1']}
+
+    self.assertEqual(m1['team-1']['ratings']['overall'], -1.0)
+    self.assertEqual(m1['team-2']['ratings']['overall'], -2.0)
+    self.assertEqual(m1['team-3']['ratings']['overall'], -3.0)
+
 
 def team(id, div, overall):
   team = {
