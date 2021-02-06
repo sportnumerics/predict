@@ -114,6 +114,8 @@ def split_games_by_div_and_day(games_list):
     result = {}
     for game in games_list:
         game_date = util.parse_date(game['date'])
+        if not game_date:
+            continue
         divs = game_divs(game)
         for div in divs:
             div = result.setdefault(div, {})

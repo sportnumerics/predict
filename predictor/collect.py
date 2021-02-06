@@ -178,7 +178,7 @@ def get_all_games(teams, from_date=None):
             }
             game_date = util.parse_date(game['date'])
             if 'result' in game:
-                if not from_date or game_date < from_date:
+                if not from_date or game_date and game_date < from_date:
                     game['result'] = parse_results(game['result'])
                 else:
                     del game['result']
