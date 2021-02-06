@@ -2,13 +2,13 @@ FROM alpine:3
 
 WORKDIR /work
 
-RUN apk add --no-cache bash curl git docker python3 openssl nodejs npm
+RUN apk add --no-cache bash curl git docker python3 py3-pip openssl nodejs npm
 
-RUN pip3 install --upgrade pip
+RUN pip install --upgrade pip
 
-RUN pip3 install --upgrade awscli
+RUN pip install --upgrade awscli
 
-RUN pip3 install --upgrade pipenv
+RUN pip install --upgrade pipenv
 
 RUN npm install -g serverless
 
