@@ -116,11 +116,11 @@ def calculate_pcd_improvement(games, team_map, lls_model, pcd_model):
     return improvements, corrections, errors
 
 
-def merge_results_with_teams_dict(teams_dict, od_results, group_id):
+def merge_results_with_teams_dict(teams_dict, od_results, groups):
     dt = datetime.now(utc.utc).isoformat()
 
     for team_id, result in od_results.items():
-        result['groupId'] = group_id
+        result['groupId'] = collect.group_for_team(groups, team_id)['id']
         result['timestamp'] = dt
         if team_id in teams_dict:
             teams_dict[team_id]['ratings'] = result

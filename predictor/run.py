@@ -61,32 +61,31 @@ def run_teams(run_name, year, teams, from_date):
 
     groups = collect.group_teams_by_games(games_list)
 
-    for group in groups:
-        team_map = collect.build_team_map(group['games'])
+    team_map = collect.build_team_map(games_list)
 
-        # offensive defensive model
-        l_model = lls_model.Model()
+    # offensive defensive model
+    l_model = lls_model.Model()
 
-        games_with_results = list(filter(lambda g: 'result' in g, group['games']))
+    games_with_results = list(filter(lambda g: 'result' in g, games_list))
 
-        coefficients = collect.build_offensive_defensive_coefficient_matrix(
-            games_with_results,
-            team_map)
+    coefficients = collect.build_offensive_defensive_coefficient_matrix(
+        games_with_results,
+        team_map)
 
-        constants = collect.build_offensive_defensive_constants(
-            games_with_results,
-            team_map)
+    constants = collect.build_offensive_defensive_constants(
+        games_with_results,
+        team_map)
 
-        l_model.train(coefficients, constants)
+    l_model.train(coefficients, constants)
 
-        od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(
-            team_map,
-            l_model)
+    od_ratings = postprocess.calculate_lss_offensive_defensive_ratings(
+        team_map,
+        l_model)
 
-        postprocess.merge_results_with_teams_dict(
-            teams_dict,
-            od_ratings,
-            group['id'])
+    postprocess.merge_results_with_teams_dict(
+        teams_dict,
+        od_ratings,
+        groups)
 
     include_run_name = 'LOCAL' in os.environ
     persistence.persist(run_name, year, teams_dict, include_run_name)
